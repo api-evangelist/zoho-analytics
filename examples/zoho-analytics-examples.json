@@ -1,0 +1,277 @@
+{
+  "importDataNewTable_Default_200_response": {
+    "status": "success",
+    "summary": "Import data",
+    "data": {
+      "viewId": "1767024000003153002",
+      "importSummary": {
+        "importType": "APPEND",
+        "totalColumnCount": 7,
+        "selectedColumnCount": 7,
+        "totalRowCount": 101,
+        "successRowCount": 101,
+        "warnings": 0,
+        "importOperation": "created"
+      },
+      "columnDetails": {
+        "Date": "Date",
+        "Region": "Plain Text",
+        "Product Category": "Plain Text",
+        "Product": "Plain Text",
+        "Customer Name": "Plain Text",
+        "Sales": "Currency",
+        "Cost": "Currency"
+      },
+      "importErrors": ""
+    }
+  },
+  "importDataExistingTable_Default_200_response": {
+    "status": "success",
+    "summary": "Import data",
+    "data": {
+      "viewId": "1767024000003153002",
+      "importSummary": {
+        "importType": "APPEND",
+        "totalColumnCount": 7,
+        "selectedColumnCount": 7,
+        "totalRowCount": 101,
+        "successRowCount": 101,
+        "warnings": 0,
+        "importOperation": "updated"
+      },
+      "columnDetails": {
+        "Date": "Date",
+        "Region": "Plain Text",
+        "Product Category": "Plain Text",
+        "Product": "Plain Text",
+        "Customer Name": "Plain Text",
+        "Sales": "Currency",
+        "Cost": "Currency"
+      },
+      "importErrors": ""
+    }
+  },
+  "batchImportNewTable_Default_200_response": {
+    "status": "success",
+    "summary": "Create bulk import job",
+    "data": {
+      "batchKey": "1694703482470_1767024000008426012_SalesTable",
+      "jobId": "1767024000008787011"
+    }
+  },
+  "batchImportExistingTable_Default_200_response": {
+    "status": "success",
+    "summary": "Create bulk import job",
+    "data": {
+      "batchKey": "1694703618038_1767024000008742002",
+      "jobId": "1767024000008787011"
+    }
+  },
+  "createExportJobSQLQuery_Default_200_response": {
+    "status": "success",
+    "summary": "Create bulk export job",
+    "data": {
+      "jobId": "1767024000008787011"
+    }
+  },
+  "createImportJobNewTable_Default_200_response": {
+    "status": "success",
+    "summary": "Create bulk import job",
+    "data": {
+      "jobId": "1767024000003153087"
+    }
+  },
+  "createExportJobViewId_Default_200_response": {
+    "status": "success",
+    "summary": "Create bulk export job",
+    "data": {
+      "jobId": "1767024000008787011"
+    }
+  },
+  "createImportJobExistingTable_Default_200_response": {
+    "status": "success",
+    "summary": "Create bulk import job",
+    "data": {
+      "jobId": "1767024000003153087"
+    }
+  },
+  "getImportJobDetails_Default_200_response": {
+    "status": "success",
+    "summary": "Fetch import job info",
+    "data": {
+      "jobId": "1767024000003153087",
+      "jobCode": "1004",
+      "jobStatus": "JOB COMPLETED",
+      "jobInfo": {
+        "viewId": "1767024000003154002",
+        "importSummary": {
+          "importType": "APPEND",
+          "totalColumnCount": 7,
+          "selectedColumnCount": 7,
+          "totalRowCount": 755,
+          "successRowCount": 755,
+          "warnings": 0,
+          "importOperation": "created"
+        },
+        "columnDetails": {
+          "Date": "Date",
+          "Region": "Plain Text",
+          "Product Category": "Plain Text",
+          "Product": "Plain Text",
+          "Customer Name": "Plain Text",
+          "Sales": "Currency",
+          "Cost": "Currency"
+        },
+        "importErrors": ""
+      },
+      "expiryTime": "1623764592309"
+    }
+  },
+  "getExportJobDetails_Default_200_response": {
+    "status": "success",
+    "summary": "Fetch export job info",
+    "data": {
+      "jobId": "35130000001391001",
+      "jobCode": "1004",
+      "jobStatus": "JOB COMPLETED",
+      "downloadUrl": "https://analyticsapi.zoho.com/restapi/v2/bulk/workspaces/35130000001242001/exportjobs/35130000001391001/data",
+      "expiryTime": "1623765872891"
+    }
+  },
+  "addRow_Default_200_response": {
+    "status": "success",
+    "summary": "Add row",
+    "data": {
+      "addedColumns": {
+        "region": "East",
+        "Sales": "1000"
+      },
+      "invalidColumns": {}
+    }
+  },
+  "updateRows_Default_200_response": {
+    "status": "success",
+    "summary": "Update row",
+    "data": {
+      "updatedColumns": {
+        "Region": "East",
+        "Sales": "1000"
+      },
+      "updatedRows": 27,
+      "invalidColumns": {}
+    }
+  },
+  "deleteRows_Default_200_response": {
+    "status": "success",
+    "summary": "Delete row",
+    "data": {
+      "deletedRows": 27
+    }
+  },
+  "updateDatasourceConnection_sample_request": "CONFIG={\"connectionName\": \"ZohoCRM_NewConnection\"}",
+  "createWorkspace_success_200_response": {
+    "status": "success",
+    "summary": "Create workspace",
+    "data": {
+      "workspaceId": "1767024000003145002"
+    }
+  },
+  "copyWorkspace_success_200_response": {
+    "status": "success",
+    "summary": "Copy workspace",
+    "data": {
+      "workspaceId": "1767024000003145006"
+    }
+  },
+  "createTable_success_200_response": {
+    "status": "success",
+    "summary": "Create table",
+    "data": {
+      "viewId": "1767024000003145012"
+    }
+  },
+  "createQueryTable_success_200_response": {
+    "status": "success",
+    "summary": "Create query table",
+    "data": {
+      "viewId": "1767024000003145013"
+    }
+  },
+  "createReport_success_200_response": {
+    "status": "success",
+    "summary": "Create report",
+    "data": {
+      "reportId": "1767024000003145020"
+    }
+  },
+  "saveAsView_success_200_response": {
+    "status": "success",
+    "summary": "Saveas view",
+    "data": {
+      "viewId": "1767024000004723001"
+    }
+  },
+  "createFolder_success_200_response": {
+    "status": "success",
+    "summary": "Create folder",
+    "data": {
+      "folderId": "1767024000004578011"
+    }
+  },
+  "sortDataByColumns_sample_request": {
+    "columns": [
+      "2531676000011845005",
+      "2531676000011845007"
+    ],
+    "sortOrder": 2,
+    "resetSort": false
+  },
+  "addColumn_success_200_response": {
+    "status": "success",
+    "summary": "Add column",
+    "data": {
+      "columnId": "1767024000003145017"
+    }
+  },
+  "copyViews_success_200_response": {
+    "status": "success",
+    "summary": "Copy views",
+    "data": {
+      "views": [
+        {
+          "sourceViewId": "1767024000004221089",
+          "destViewId": "2102449000000625001"
+        },
+        {
+          "sourceViewId": "1767024000004221093",
+          "destViewId": "2102449000000625005"
+        }
+      ]
+    }
+  },
+  "createAutoMLAnalysis_success_200_response": {
+    "status": "success",
+    "summary": "Create autoML analysis",
+    "data": {
+      "id": "466206000000178110"
+    }
+  },
+  "createAutoMLAnalysisDeployment_success_200_response": {
+    "status": "success",
+    "summary": "Create autoML analysis deployment",
+    "data": {
+      "deployments": {
+        "outputTableId": "466206000000198129",
+        "deploymentId": "466206000000198176"
+      }
+    }
+  },
+  "autoMLWhatIfAnalysis_success_200_response": {
+    "status": "success",
+    "summary": "AutoML what if analysis",
+    "data": {
+      "predictions": "1000",
+      "targetColumn": "Sales"
+    }
+  }
+}

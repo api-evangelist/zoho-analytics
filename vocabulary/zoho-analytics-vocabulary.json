@@ -1,0 +1,3623 @@
+{
+  "title": "Zoho Analytics API Vocabulary",
+  "description": "Terms, schemas, and operations vocabulary extracted from the Zoho Analytics OpenAPI specifications",
+  "version": "2.0",
+  "source": "https://github.com/zoho/analytics-oas",
+  "terms": {
+    "ImportConfigNewTable": {
+      "type": "schema",
+      "description": "Configuration for importing data into a new table.",
+      "properties": [
+        "tableName",
+        "fileType",
+        "autoIdentify",
+        "onError",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "columnDateFormat",
+        "commentChar",
+        "delimiter",
+        "quoted",
+        "retainColumnNames"
+      ]
+    },
+    "ImportConfigExistingTable": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "importType",
+        "fileType",
+        "autoIdentify",
+        "onError",
+        "matchingColumns",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "columnDateFormat",
+        "columnDataTypes",
+        "commentChar",
+        "delimiter",
+        "quoted",
+        "retainColumnNames"
+      ]
+    },
+    "ImportSuccessResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "ExistImportSuccessResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "ExportConfig": {
+      "type": "schema",
+      "description": "Configuration for exporting data from a view using Bulk Export APIs.",
+      "properties": [
+        "responseFormat",
+        "criteria",
+        "selectedColumns",
+        "showHiddenCols",
+        "showPersonalCols",
+        "generateTOC",
+        "dashboardLayout",
+        "delimiter",
+        "recordDelimiter",
+        "quoted",
+        "includeHeader",
+        "keyValueFormat",
+        "paperSize",
+        "paperStyle",
+        "showTitle",
+        "showDesc",
+        "exportLanguage",
+        "zoomFactor",
+        "topMargin",
+        "bottomMargin",
+        "leftMargin",
+        "rightMargin",
+        "leftHeader",
+        "rightHeader",
+        "centerHeader",
+        "leftFooter",
+        "rightFooter",
+        "centerFooter",
+        "leftHeaderText",
+        "rightHeaderText",
+        "centerHeaderText",
+        "leftFooterText",
+        "rightFooterText",
+        "centerFooterText",
+        "includeTitle",
+        "includeDesc",
+        "width",
+        "height",
+        "title",
+        "description",
+        "legend",
+        "imageFormat"
+      ]
+    },
+    "BatchImportConfigNewTable": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "batchKey",
+        "isLastBatch",
+        "tableName",
+        "autoIdentify",
+        "onError",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "columnDateFormat",
+        "callbackUrl",
+        "commentChar",
+        "delimiter",
+        "quoted"
+      ]
+    },
+    "BatchImportConfigExistingTable": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "batchKey",
+        "isLastBatch",
+        "importType",
+        "autoIdentify",
+        "onError",
+        "matchingColumns",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "columnDateFormat",
+        "callbackUrl",
+        "commentChar",
+        "delimiter",
+        "quoted"
+      ]
+    },
+    "BatchImportSuccessResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "BulkImportConfigNewTable": {
+      "type": "schema",
+      "description": "Configuration for importing data into a new table.",
+      "properties": [
+        "tableName",
+        "fileType",
+        "autoIdentify",
+        "onError",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "columnDateFormat",
+        "commentChar",
+        "delimiter",
+        "quoted",
+        "retainColumnNames",
+        "callbackUrl"
+      ]
+    },
+    "BulkImportConfigExistingTable": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "importType",
+        "fileType",
+        "autoIdentify",
+        "onError",
+        "matchingColumns",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "columnDateFormat",
+        "columnDataTypes",
+        "commentChar",
+        "delimiter",
+        "quoted",
+        "retainColumnNames",
+        "callbackUrl"
+      ]
+    },
+    "ImportJobConfigNewTable": {
+      "type": "schema",
+      "description": "Configuration for creating an asynchronous import job into a new table.",
+      "properties": [
+        "tableName",
+        "fileType",
+        "autoIdentify",
+        "onError",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "encoding",
+        "quoteChar",
+        "commentChar",
+        "nullValue",
+        "trimSpaces",
+        "callbackUrl"
+      ]
+    },
+    "ImportJobConfigExistingTable": {
+      "type": "schema",
+      "description": "Configuration for creating an asynchronous import job into an existing table.",
+      "properties": [
+        "importType",
+        "fileType",
+        "autoIdentify",
+        "onError",
+        "matchingColumns",
+        "selectedColumns",
+        "skipTop",
+        "thousandSeparator",
+        "decimalSeparator",
+        "dateFormat",
+        "encoding",
+        "quoteChar",
+        "commentChar",
+        "nullValue",
+        "trimSpaces",
+        "callbackUrl"
+      ]
+    },
+    "ImportJobCreationResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "ImportJobDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "ExportJobConfigSQLQuery": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "sqlQuery",
+        "responseFormat",
+        "selectedColumns",
+        "showHiddenCols",
+        "showPersonalCols",
+        "callbackUrl",
+        "delimiter",
+        "recordDelimiter",
+        "quoted",
+        "includeHeader",
+        "keyValueFormat",
+        "paperSize",
+        "paperStyle",
+        "showTitle",
+        "showDesc",
+        "exportLanguage",
+        "zoomFactor",
+        "topMargin",
+        "bottomMargin",
+        "leftMargin",
+        "rightMargin",
+        "leftHeader",
+        "rightHeader",
+        "centerHeader",
+        "leftFooter",
+        "rightFooter",
+        "centerFooter",
+        "leftHeaderText",
+        "rightHeaderText",
+        "centerHeaderText",
+        "leftFooterText",
+        "rightFooterText",
+        "centerFooterText",
+        "includeTitle",
+        "includeDesc"
+      ]
+    },
+    "ExportJobConfigViewId": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "responseFormat",
+        "criteria",
+        "selectedColumns",
+        "showHiddenCols",
+        "showPersonalCols",
+        "callbackUrl",
+        "delimiter",
+        "recordDelimiter",
+        "quoted",
+        "includeHeader",
+        "keyValueFormat",
+        "paperSize",
+        "paperStyle",
+        "showTitle",
+        "showDesc",
+        "exportLanguage",
+        "zoomFactor",
+        "topMargin",
+        "bottomMargin",
+        "leftMargin",
+        "rightMargin",
+        "leftHeader",
+        "rightHeader",
+        "centerHeader",
+        "leftFooter",
+        "rightFooter",
+        "centerFooter",
+        "leftHeaderText",
+        "rightHeaderText",
+        "centerHeaderText",
+        "leftFooterText",
+        "rightFooterText",
+        "centerFooterText",
+        "includeTitle",
+        "includeDesc"
+      ]
+    },
+    "ExportJobCreationResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "ExportJobDetailsResponse": {
+      "type": "schema",
+      "description": "Response for checking the status of an export job.",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AddRowConfig": {
+      "type": "schema",
+      "description": "JSONObject with configuration for adding a row.",
+      "properties": [
+        "columns",
+        "dateFormat",
+        "columnDateFormat"
+      ]
+    },
+    "DeleteRowsConfig": {
+      "type": "schema",
+      "description": "JSONObject with configuration for deleting rows. Must contain exactly one of the following properties: `criteria` (for selective deletion based on a string expression) or `deleteAllRows` (a boolean to indicate deletion of all rows).",
+      "properties": [
+        "criteria",
+        "deleteAllRows"
+      ]
+    },
+    "UpdateRowsConfig": {
+      "type": "schema",
+      "description": "JSONObject with configuration for updating rows.",
+      "properties": [
+        "columns",
+        "criteria",
+        "updateAllRows",
+        "addIfNotExist",
+        "dateFormat",
+        "columnDateFormat"
+      ]
+    },
+    "Error": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetViewUrlConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "criteria",
+        "includeTitle",
+        "includeDesc",
+        "includeToolBar",
+        "includeSearchBox",
+        "includeDatatypeSymbol",
+        "legendPosition",
+        "domainName"
+      ]
+    },
+    "GetViewUrlResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetEmbedUrlConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "criteria",
+        "includeTitle",
+        "includeDesc",
+        "includeToolBar",
+        "includeSearchBox",
+        "includeDatatypeSymbol",
+        "legendPosition",
+        "validityPeriod",
+        "permissions",
+        "vudColumns",
+        "drillColumns",
+        "language",
+        "domainName"
+      ]
+    },
+    "GetEmbedUrlResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetPrivateUrlConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "domainName"
+      ]
+    },
+    "GetPrivateUrlResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CreatePrivateUrlConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "criteria",
+        "permissions",
+        "regenerateKey",
+        "vudColumns",
+        "drillColumns",
+        "includeAllColsForVUD",
+        "password",
+        "removePassword",
+        "expiryDate",
+        "removeExpiryDate"
+      ]
+    },
+    "CreatePrivateUrlResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "MakeViewsPublicConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "publicPermLevel",
+        "permissions",
+        "vudColumns",
+        "drillColumns",
+        "criteria",
+        "inheritParentFilterCriteria"
+      ]
+    },
+    "MakeViewsPublicResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "UpdatePublishConfigurationsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "URLCriteria",
+        "includeTitle",
+        "includeDesc",
+        "includeToolBar",
+        "includeSearchBox",
+        "includeDatatypeSymbol",
+        "includeSocialWidgets",
+        "isListed",
+        "isInteractive",
+        "autoRefresh",
+        "width",
+        "height",
+        "includeAskZia"
+      ]
+    },
+    "GetPublishConfigurationsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetSlideshowsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetSlideshowDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetSlideshowUrlResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CreateSlideshowConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "slideName",
+        "viewIds",
+        "accessType"
+      ]
+    },
+    "CreateSlideshowResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "UpdateSlideshowConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "slideName",
+        "viewIds",
+        "regenerateSlideKey",
+        "accessType"
+      ]
+    },
+    "GetMetaDetailsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "workspaceName",
+        "viewName"
+      ]
+    },
+    "GetOrganizationsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAllWorkspacesResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetOwnedWorkspacesResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetSharedWorkspacesResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "WorkspaceSummary": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "workspaceId",
+        "workspaceName",
+        "workspaceDesc",
+        "orgId",
+        "createdTime",
+        "createdBy",
+        "isDefault"
+      ]
+    },
+    "GetViewsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetFoldersResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetRecentViewsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetTrashViewsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetDashboardsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "DashboardSummary": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "viewId",
+        "viewName",
+        "viewDesc",
+        "viewType",
+        "parentViewId",
+        "folderId",
+        "createdTime",
+        "createdBy",
+        "lastModifiedTime",
+        "lastModifiedBy",
+        "isFavorite",
+        "sharedBy",
+        "workspaceId",
+        "orgId"
+      ]
+    },
+    "GetOwnedDashboardsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetSharedDashboardsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetWorkspaceSecretKeyResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetWorkspaceDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetViewDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetQueryTableDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetTableMetadataResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetViewDependentsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetColumnDependentsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetCustomFormulaListResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAggregateFormulaListResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAggregateFormulasInWorkspaceResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAggregateFormulaDependentsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAggregateFormulaValueResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetMetaDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetEmailSchedulesResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetDatasourcesResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetLastImportDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAutoMLAnalysisResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAutoMLAnalysisInWorkspaceResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetAutoMLAnalysisDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetDeploymentsForModelResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CreateWorkspaceConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "workspaceName",
+        "workspaceDesc"
+      ]
+    },
+    "CreateWorkspaceResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CopyWorkspaceConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "newWorkspaceName",
+        "newWorkspaceDesc",
+        "workspaceKey",
+        "copyWithData",
+        "copyWithImportSource"
+      ]
+    },
+    "CopyWorkspaceResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "RenameWorkspaceConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "workspaceName"
+      ]
+    },
+    "CreateTableConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "tableDesign"
+      ]
+    },
+    "CreateTableResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "TableDesign": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "TABLENAME",
+        "TABLEDESCRIPTION",
+        "FOLDERNAME",
+        "COLUMNS"
+      ]
+    },
+    "ColumnDesign": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "COLUMNNAME",
+        "DATATYPE",
+        "MANDATORY",
+        "DESCRIPTION",
+        "DEFAULT",
+        "GEOROLE",
+        "ISHIDE",
+        "PII",
+        "LOOKUPCOLUMN"
+      ]
+    },
+    "LookupColumnDesign": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "TABLENAME",
+        "COLUMNNAME"
+      ]
+    },
+    "CreateQueryTableConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "sqlQuery",
+        "queryTableName",
+        "description",
+        "folderId"
+      ]
+    },
+    "EditQueryTableConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "sqlQuery",
+        "folderId"
+      ]
+    },
+    "CreateReportConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "baseTableName",
+        "title",
+        "description",
+        "reportType",
+        "chartType",
+        "axisColumns",
+        "filters",
+        "userFilters",
+        "isAxisMerge",
+        "mergeAxisInfo"
+      ]
+    },
+    "UpdateReportConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "title",
+        "description",
+        "reportType",
+        "axisColumns",
+        "filters",
+        "userFilters",
+        "isAxisMerge",
+        "mergeAxisInfo"
+      ]
+    },
+    "CreateReportResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CreateQueryTableResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AxisColumn": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "type",
+        "columnName",
+        "operation"
+      ]
+    },
+    "FilterColumn": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "tableName",
+        "columnName",
+        "operation"
+      ]
+    },
+    "SaveAsViewConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "viewName",
+        "viewDesc",
+        "copyWithData",
+        "copyWithLookup",
+        "folderId"
+      ]
+    },
+    "SaveAsViewResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "MoveViewsToFolderConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "folderId",
+        "viewIds"
+      ]
+    },
+    "RenameViewConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "viewName",
+        "viewDesc"
+      ]
+    },
+    "DeleteViewConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "deleteDependentViews"
+      ]
+    },
+    "RestoreTrashViewConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "withDependents"
+      ]
+    },
+    "DeleteTrashViewConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "withDependents"
+      ]
+    },
+    "CreateFolderConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "folderName",
+        "folderDesc",
+        "parentFolderId",
+        "makeDefaultFolder"
+      ]
+    },
+    "CreateFolderResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "RenameFolderConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "folderName",
+        "folderDesc"
+      ]
+    },
+    "ChangeFolderHierarchyConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "hierarchy",
+        "parentFolderId"
+      ]
+    },
+    "ChangeFolderPositionConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "referenceFolderId"
+      ]
+    },
+    "DeleteFolderConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "deleteDependentViews"
+      ]
+    },
+    "AddColumnConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "columnName",
+        "dataType",
+        "isPIIColumn",
+        "geoRole"
+      ]
+    },
+    "AddColumnResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "RenameColumnConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "columnName"
+      ]
+    },
+    "DeleteColumnConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "deleteDependentViews"
+      ]
+    },
+    "AddLookupConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "referenceViewId",
+        "referenceColumnId"
+      ]
+    },
+    "RemoveLookupConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "deleteDependentViews"
+      ]
+    },
+    "HideShowColumnConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "columnIds"
+      ]
+    },
+    "ReorderColumnsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "columns"
+      ]
+    },
+    "SortDataByColumnsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "columns",
+        "sortOrder",
+        "resetSort"
+      ]
+    },
+    "CopyViewsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "viewIds",
+        "destWorkspaceId",
+        "workspaceKey",
+        "copyWithData",
+        "copyWithDependentViews"
+      ]
+    },
+    "CopyViewsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CopyFormulasConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "formulaColumnNames",
+        "destWorkspaceId",
+        "workspaceKey"
+      ]
+    },
+    "CreateSimilarViewsConfig": {
+      "type": "schema",
+      "description": "Configuration for creating similar views based on a reference view.",
+      "properties": [
+        "referenceViewId",
+        "folderId",
+        "copyCustomFormula",
+        "copyAggFormula"
+      ]
+    },
+    "AutoAnalyseViewConfig": {
+      "type": "schema",
+      "description": "Configuration for auto-analysing a view.",
+      "properties": [
+        "analyseAgain"
+      ]
+    },
+    "VariableFormat": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "alignment",
+        "decimalPlaces",
+        "currencySymbol",
+        "showNegativeSign",
+        "userLocale",
+        "thousandSeparator",
+        "decimalSeparator",
+        "showPercent"
+      ]
+    },
+    "UserSpecificVariableData": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "values",
+        "emailIds",
+        "defaultValue",
+        "minValue",
+        "maxValue",
+        "stepSize",
+        "domainName"
+      ]
+    },
+    "DefaultVariableData": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "values",
+        "defaultValue",
+        "minValue",
+        "maxValue",
+        "stepSize"
+      ]
+    },
+    "VariableConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "variableName",
+        "variableType",
+        "variableDataType",
+        "format",
+        "userSpecificData",
+        "defaultData"
+      ]
+    },
+    "CreateVariableResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetVariableDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetVariablesResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AddFormulaColumnConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "formulaName",
+        "expression",
+        "description"
+      ]
+    },
+    "EditFormulaColumnConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "expression",
+        "description"
+      ]
+    },
+    "DeleteFormulaColumnConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "deleteDependentViews"
+      ]
+    },
+    "AddAggregateFormulaConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "formulaName",
+        "expression",
+        "description"
+      ]
+    },
+    "EditAggregateFormulaConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "expression",
+        "description"
+      ]
+    },
+    "DeleteAggregateFormulaConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "deleteDependentViews"
+      ]
+    },
+    "AddFormulaColumnResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AddAggregateFormulaResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CreateEmailScheduleConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "scheduleName",
+        "viewIds",
+        "exportType",
+        "scheduleDetails",
+        "emailIds",
+        "groupIds",
+        "cc",
+        "applyShareCriteria",
+        "applyDefaultUf",
+        "subject",
+        "message"
+      ]
+    },
+    "CreateEmailScheduleResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "UpdateEmailScheduleConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "scheduleName",
+        "scheduleDetails",
+        "emailIds",
+        "groupIds",
+        "cc",
+        "subject",
+        "message"
+      ]
+    },
+    "UpdateEmailScheduleResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "ChangeEmailScheduleStatusConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "operation"
+      ]
+    },
+    "CreateAutoMLAnalysisConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "name",
+        "description",
+        "trainingTableId",
+        "targetColumn",
+        "predictionType",
+        "features",
+        "serverOption",
+        "algorithms"
+      ]
+    },
+    "CreateAutoMLAnalysisResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CreateAutoMLAnalysisDeploymentConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "inputTableId",
+        "outputTable",
+        "scheduleDetails",
+        "outputColumns",
+        "predictionColumn",
+        "serverOption",
+        "timezone",
+        "importType",
+        "matchingColumns"
+      ]
+    },
+    "CreateAutoMLAnalysisDeploymentResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AutoMLWhatIfAnalysisConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "features"
+      ]
+    },
+    "AutoMLWhatIfAnalysisResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetOrgAdminsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetWorkspaceAdminsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AddWorkspaceAdminConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName",
+        "inviteMail"
+      ]
+    },
+    "RemoveWorkspaceAdminConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName",
+        "notifyMail"
+      ]
+    },
+    "ShareViewsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "viewIds",
+        "groupIds",
+        "permissions",
+        "criteria",
+        "inheritParentFilterCriteria",
+        "inviteMail",
+        "inviteMailCCMe",
+        "mailSubject",
+        "mailMessage",
+        "domainName",
+        "columns",
+        "vudColumns",
+        "drillColumns",
+        "includeAllColsForVUD"
+      ]
+    },
+    "ShareViewsResponse": {
+      "type": "schema",
+      "description": "Empty response with HTTP 204 No Content",
+      "properties": []
+    },
+    "RemoveShareConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "viewIds",
+        "removeAllViews",
+        "domainName",
+        "groupIds"
+      ]
+    },
+    "RemoveShareResponse": {
+      "type": "schema",
+      "description": "Empty response with HTTP 204 No Content",
+      "properties": []
+    },
+    "GetWorkspaceSharedDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "_ShareViewObject": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "viewId",
+        "viewName",
+        "sharedBy",
+        "permissions"
+      ]
+    },
+    "MyPermissionsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "SharedDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "UpdateSharedConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "groupIds",
+        "columns",
+        "permissions",
+        "criteria",
+        "inheritParentFilterCriteria",
+        "domainName",
+        "vudColumns",
+        "drillColumns",
+        "includeAllColsForVUD"
+      ]
+    },
+    "PermissionAttributes": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "read",
+        "export",
+        "vud",
+        "addRow",
+        "updateRow",
+        "deleteRow",
+        "deleteAllRows",
+        "importAppend",
+        "importAddOrUpdate",
+        "importDeleteAllAdd",
+        "importDeleteUpdateAdd",
+        "drillDown",
+        "share",
+        "discussion",
+        "insight"
+      ]
+    },
+    "GetMyPermissionsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "SharedInfo": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "sharedTo",
+        "sharedBy",
+        "sharedToZuId",
+        "permissionString",
+        "permissions",
+        "criteria",
+        "inheritParentFilterCriteria",
+        "isInvalidCriteria",
+        "sharedColumns",
+        "vudColumns",
+        "drillColumns",
+        "isGroupShare",
+        "publicPermLevel",
+        "isROUser"
+      ]
+    },
+    "SharedDetail": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "viewId",
+        "shareInfo"
+      ]
+    },
+    "GetSharedDetailsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "viewIds"
+      ]
+    },
+    "GetSharedDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "ColumnPermissionObject": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "tableName",
+        "columnNames"
+      ]
+    },
+    "UpdateSharedDetailsConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "groupIds",
+        "columns",
+        "permissions",
+        "criteria",
+        "inheritParentFilterCriteria",
+        "domainName",
+        "vudColumns",
+        "drillColumns",
+        "includeAllColsForVUD"
+      ]
+    },
+    "Group": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "groupName",
+        "groupId",
+        "groupDesc",
+        "groupMembers"
+      ]
+    },
+    "Groups": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "groups"
+      ]
+    },
+    "GetGroupsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetGroupDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "CreateGroupConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "groupName",
+        "groupDesc",
+        "emailIds",
+        "inviteMail",
+        "mailSubject",
+        "mailMessage",
+        "domainName"
+      ]
+    },
+    "CreateGroupResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "RenameGroupConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "groupName",
+        "groupDesc"
+      ]
+    },
+    "GroupMembersConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "inviteMail",
+        "domainName"
+      ]
+    },
+    "GroupMembersRemovalConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "notifyMail",
+        "domainName"
+      ]
+    },
+    "GetUsersResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AddUsersConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "role",
+        "domainName"
+      ]
+    },
+    "RemoveUsersConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName"
+      ]
+    },
+    "ActivateUsersConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName"
+      ]
+    },
+    "DeactivateUsersConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName"
+      ]
+    },
+    "ChangeUserRoleConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "role",
+        "domainName"
+      ]
+    },
+    "GetSubscriptionDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "GetResourceDetailsResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "AddWorkspaceUsersConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName",
+        "role"
+      ]
+    },
+    "DeleteWorkspaceUsersConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName"
+      ]
+    },
+    "ChangeWorkspaceUsersStatusConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName",
+        "operation"
+      ]
+    },
+    "ChangeWorkspaceUsersRoleConfig": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "emailIds",
+        "domainName",
+        "role"
+      ]
+    },
+    "GetWorkspaceUsersResponse": {
+      "type": "schema",
+      "description": "",
+      "properties": [
+        "status",
+        "summary",
+        "data"
+      ]
+    },
+    "importDataNewTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/data",
+      "tags": [
+        "Bulk Import - Synchronous"
+      ],
+      "summary": "Import Data into a New Table (Synchronous)",
+      "source": "bulk-api"
+    },
+    "importDataExistingTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/data",
+      "tags": [
+        "Bulk Import - Synchronous"
+      ],
+      "summary": "Import Data into an Existing Table (Synchronous)",
+      "source": "bulk-api"
+    },
+    "exportDataView": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/data",
+      "tags": [
+        "Bulk Export - Synchronous"
+      ],
+      "summary": "Export Data from a View (Synchronous)",
+      "source": "bulk-api"
+    },
+    "batchImportNewTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/data/batch",
+      "tags": [
+        "Bulk Import - Batch"
+      ],
+      "summary": "Batch Import Data into New Table",
+      "source": "bulk-api"
+    },
+    "batchImportExistingTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/views/{view-id}/data/batch",
+      "tags": [
+        "Bulk Import - Batch"
+      ],
+      "summary": "Batch Import Data into Existing Table",
+      "source": "bulk-api"
+    },
+    "createExportJobSQLQuery": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/data",
+      "tags": [
+        "Bulk Export - Asynchronous"
+      ],
+      "summary": "Create Export Job using SQL Query (Asynchronous)",
+      "source": "bulk-api"
+    },
+    "createImportJobNewTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/data",
+      "tags": [
+        "Bulk Import - Asynchronous"
+      ],
+      "summary": "Create Import Job for a New Table (Asynchronous)",
+      "source": "bulk-api"
+    },
+    "createExportJobViewId": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/views/{view-id}/data",
+      "tags": [
+        "Bulk Export - Asynchronous"
+      ],
+      "summary": "Create Export Job using View ID (Asynchronous)",
+      "source": "bulk-api"
+    },
+    "createImportJobExistingTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/views/{view-id}/data",
+      "tags": [
+        "Bulk Import - Asynchronous"
+      ],
+      "summary": "Create Import Job for an Existing Table (Asynchronous)",
+      "source": "bulk-api"
+    },
+    "getImportJobDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/importjobs/{job-id}",
+      "tags": [
+        "Bulk Import - Asynchronous"
+      ],
+      "summary": "Get Import Job Details",
+      "source": "bulk-api"
+    },
+    "getExportJobDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/exportjobs/{job-id}",
+      "tags": [
+        "Bulk Export - Asynchronous"
+      ],
+      "summary": "Get Export Job Details",
+      "source": "bulk-api"
+    },
+    "downloadExportedData": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/bulk/workspaces/{workspace-id}/exportjobs/{job-id}/data",
+      "tags": [
+        "Bulk Export - Asynchronous"
+      ],
+      "summary": "Download Exported Data",
+      "source": "bulk-api"
+    },
+    "addRow": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/rows",
+      "tags": [
+        "Data APIs"
+      ],
+      "summary": "Add Row",
+      "source": "data-api"
+    },
+    "updateRows": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/rows",
+      "tags": [
+        "Data APIs"
+      ],
+      "summary": "Update Rows",
+      "source": "data-api"
+    },
+    "deleteRows": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/rows",
+      "tags": [
+        "Data APIs"
+      ],
+      "summary": "Delete Row",
+      "source": "data-api"
+    },
+    "getViewUrl": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Get View URL",
+      "source": "embed-api"
+    },
+    "getEmbedUrl": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/embed",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Get Embed URL",
+      "source": "embed-api"
+    },
+    "getPrivateUrl": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/privatelink",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Get Private URL",
+      "source": "embed-api"
+    },
+    "createPrivateUrl": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/privatelink",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Create Private URL",
+      "source": "embed-api"
+    },
+    "removePrivateAccess": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/privatelink",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Remove Private Access",
+      "source": "embed-api"
+    },
+    "makeViewsPublic": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/public",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Make Views Public",
+      "source": "embed-api"
+    },
+    "removePublicPermission": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/public",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Remove Public Permission",
+      "source": "embed-api"
+    },
+    "getPublishConfigurations": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/config",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Get Publish Configurations",
+      "source": "embed-api"
+    },
+    "updatePublishConfigurations": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/config",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Update Publish Configurations",
+      "source": "embed-api"
+    },
+    "getSlideshows": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/slides",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Get Slideshows",
+      "source": "embed-api"
+    },
+    "createSlideshow": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/slides",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Create Slideshow",
+      "source": "embed-api"
+    },
+    "getSlideshowDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/slides/{slide-id}",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Get Slideshow Details",
+      "source": "embed-api"
+    },
+    "updateSlideshow": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/slides/{slide-id}",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Update Slideshow",
+      "source": "embed-api"
+    },
+    "deleteSlideshow": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/slides/{slide-id}",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Delete Slideshow",
+      "source": "embed-api"
+    },
+    "getSlideshowUrl": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/slides/{slide-id}/publish",
+      "tags": [
+        "Embed APIs"
+      ],
+      "summary": "Get Slideshow URL",
+      "source": "embed-api"
+    },
+    "getOrganizations": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/orgs",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get organizations",
+      "source": "metadata-api"
+    },
+    "getAllWorkspaces": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get all workspaces",
+      "source": "metadata-api"
+    },
+    "getOwnedWorkspaces": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/owned",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get owned workspaces",
+      "source": "metadata-api"
+    },
+    "getSharedWorkspaces": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/shared",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get shared workspaces",
+      "source": "metadata-api"
+    },
+    "getViews": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Views",
+      "source": "metadata-api"
+    },
+    "getFolders": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/folders",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Folders",
+      "source": "metadata-api"
+    },
+    "getRecentViews": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/recentviews",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Recent Views",
+      "source": "metadata-api"
+    },
+    "getTrashViews": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/trash",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Trash Views",
+      "source": "metadata-api"
+    },
+    "getDashboards": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/dashboards",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Dashboards",
+      "source": "metadata-api"
+    },
+    "getOwnedDashboards": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/dashboards/owned",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Owned Dashboards",
+      "source": "metadata-api"
+    },
+    "getSharedDashboards": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/dashboards/shared",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Shared Dashboards",
+      "source": "metadata-api"
+    },
+    "getWorkspaceSecretKey": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/secretkey",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Workspace Secret Key",
+      "source": "metadata-api"
+    },
+    "getWorkspaceDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Workspace Details",
+      "source": "metadata-api"
+    },
+    "getViewDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/views/{view-id}",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get View Details",
+      "source": "metadata-api"
+    },
+    "getQueryTableDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/querytables/{query-table-id}",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get QueryTable Details",
+      "source": "metadata-api"
+    },
+    "getTableMetadata": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/metadata",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Table Metadata",
+      "source": "metadata-api"
+    },
+    "getViewDependents": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/dependents",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get View Dependents",
+      "source": "metadata-api"
+    },
+    "getColumnDependents": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/dependents",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Column Dependents",
+      "source": "metadata-api"
+    },
+    "addFavoriteWorkspace": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/favorite",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Add Favorite Workspace",
+      "source": "metadata-api"
+    },
+    "removeFavoriteWorkspace": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/favorite",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Remove Favorite Workspace",
+      "source": "metadata-api"
+    },
+    "addDefaultWorkspace": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/default",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Add Default Workspace",
+      "source": "metadata-api"
+    },
+    "removeDefaultWorkspace": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/default",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Remove Default Workspace",
+      "source": "metadata-api"
+    },
+    "addFavoriteView": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/favorite",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Add Favorite View",
+      "source": "metadata-api"
+    },
+    "removeFavoriteView": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/favorite",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Remove Favorite View",
+      "source": "metadata-api"
+    },
+    "exportAsTemplate": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/template/data",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Export as Template",
+      "source": "metadata-api"
+    },
+    "getCustomFormulaList": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Custom Formula List",
+      "source": "metadata-api"
+    },
+    "getAggregateFormulaList": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Aggregate Formula List",
+      "source": "metadata-api"
+    },
+    "getAggregateFormulasInWorkspace": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/aggregateformulas",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Aggregate Formulas In Workspace",
+      "source": "metadata-api"
+    },
+    "getAggregateFormulaDependents": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/aggregateformulas/{formula-id}/dependents",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Aggregate Formula Dependents",
+      "source": "metadata-api"
+    },
+    "getAggregateFormulaValue": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/aggregateformulas/{formula-id}/value",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Aggregate Formula Value",
+      "source": "metadata-api"
+    },
+    "getMetaDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/metadetails",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Meta Details",
+      "source": "metadata-api"
+    },
+    "getEmailSchedules": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/emailschedules",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Email Schedules",
+      "source": "metadata-api"
+    },
+    "getDatasources": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/datasources",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Datasources",
+      "source": "metadata-api"
+    },
+    "getLastImportDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/importdetails",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Last Import Details",
+      "source": "metadata-api"
+    },
+    "syncDatasource": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/datasource/{datasource-id}/sync",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Sync Data",
+      "source": "metadata-api"
+    },
+    "refetchDatasource": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/sync",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Refetch Data",
+      "source": "metadata-api"
+    },
+    "updateDatasourceConnection": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/datasource/{datasource-id}",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Update Datasource Connection",
+      "source": "metadata-api"
+    },
+    "enableDomainWorkspace": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/wlaccess",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Enable Domain Workspace",
+      "source": "metadata-api"
+    },
+    "disableDomainWorkspace": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/wlaccess",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Disable Domain Workspace",
+      "source": "metadata-api"
+    },
+    "getAutoMLAnalysisInOrg": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/automl/analysis",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get AutoML Analysis In Org",
+      "source": "metadata-api"
+    },
+    "getAutoMLAnalysisInWorkspace": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get AutoML Analysis In Workspace",
+      "source": "metadata-api"
+    },
+    "getAutoMLAnalysisDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get AutoML Analysis Details",
+      "source": "metadata-api"
+    },
+    "getDeploymentsForModel": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}/deployments",
+      "tags": [
+        "Metadata APIs"
+      ],
+      "summary": "Get Deployments For A Model",
+      "source": "metadata-api"
+    },
+    "createWorkspace": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create Workspace",
+      "source": "modeling-api"
+    },
+    "copyWorkspace": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Copy Workspace",
+      "source": "modeling-api"
+    },
+    "renameWorkspace": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Rename Workspace",
+      "source": "modeling-api"
+    },
+    "deleteWorkspace": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete Workspace",
+      "source": "modeling-api"
+    },
+    "createTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/tables",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create Table",
+      "source": "modeling-api"
+    },
+    "createQueryTable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/querytables",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create Query Table",
+      "source": "modeling-api"
+    },
+    "editQueryTable": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/querytables/{table-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Edit Query Table",
+      "source": "modeling-api"
+    },
+    "createReport": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/reports",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create Report",
+      "source": "modeling-api"
+    },
+    "updateReport": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/reports/{report-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Update Report",
+      "source": "modeling-api"
+    },
+    "saveAsView": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/saveas",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Save As View",
+      "source": "modeling-api"
+    },
+    "moveViewsToFolder": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/movetofolder",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Move Views To Folder",
+      "source": "modeling-api"
+    },
+    "renameView": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Rename View",
+      "source": "modeling-api"
+    },
+    "deleteView": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete View",
+      "source": "modeling-api"
+    },
+    "restoreTrashView": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/trash/{view-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Restore Trash View",
+      "source": "modeling-api"
+    },
+    "deleteTrashView": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/trash/{view-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete Trash View",
+      "source": "modeling-api"
+    },
+    "createFolder": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/folders",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create Folder",
+      "source": "modeling-api"
+    },
+    "renameFolder": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/folders/{folder-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Rename Folder",
+      "source": "modeling-api"
+    },
+    "deleteFolder": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/folders/{folder-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete Folder",
+      "source": "modeling-api"
+    },
+    "makeDefaultFolder": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/folders/{folder-id}/default",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Make Default Folder",
+      "source": "modeling-api"
+    },
+    "changeFolderHierarchy": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/folders/{folder-id}/move",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Change Folder Hierarchy",
+      "source": "modeling-api"
+    },
+    "changeFolderPosition": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/folders/{folder-id}/reorder",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Change Folder Position",
+      "source": "modeling-api"
+    },
+    "sortDataByColumns": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/data/sort",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Sort Data by Columns",
+      "source": "modeling-api"
+    },
+    "addColumn": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Add Column",
+      "source": "modeling-api"
+    },
+    "renameColumn": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Rename Column",
+      "source": "modeling-api"
+    },
+    "deleteColumn": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete Column",
+      "source": "modeling-api"
+    },
+    "addLookup": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/lookup",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Add Lookup",
+      "source": "modeling-api"
+    },
+    "removeLookup": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/lookup",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Remove Lookup",
+      "source": "modeling-api"
+    },
+    "hideColumns": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/hide",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Hide Columns",
+      "source": "modeling-api"
+    },
+    "showColumns": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/show",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Show Columns",
+      "source": "modeling-api"
+    },
+    "reorderColumns": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/reorder",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Reorder Columns",
+      "source": "modeling-api"
+    },
+    "copyViews": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{source-workspace-id}/views/copy",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Copy Views",
+      "source": "modeling-api"
+    },
+    "copyFormulas": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/formulas/copy",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Copy Formulas",
+      "source": "modeling-api"
+    },
+    "createSimilarViews": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/similarviews",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create Similar Views",
+      "source": "modeling-api"
+    },
+    "autoAnalyseView": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/autoanalyse",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Auto Analyse View",
+      "source": "modeling-api"
+    },
+    "autoAnalyseColumn": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/autoanalyse",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Auto Analyse Column",
+      "source": "modeling-api"
+    },
+    "getVariables": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/variables",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Get all variables in a workspace",
+      "source": "modeling-api"
+    },
+    "createVariable": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/variables",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create a variable",
+      "source": "modeling-api"
+    },
+    "getVariableDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/variables/{variable-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Get details of a specific variable",
+      "source": "modeling-api"
+    },
+    "updateVariable": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/variables/{variable-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Update a variable",
+      "source": "modeling-api"
+    },
+    "deleteVariable": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/variables/{variable-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete a variable",
+      "source": "modeling-api"
+    },
+    "addFormulaColumn": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Add Formula Column",
+      "source": "modeling-api"
+    },
+    "editFormulaColumn": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas/{formula-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Edit Formula Column",
+      "source": "modeling-api"
+    },
+    "deleteFormulaColumn": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas/{formula-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete Formula Column",
+      "source": "modeling-api"
+    },
+    "addAggregateFormula": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Add Aggregate Formula",
+      "source": "modeling-api"
+    },
+    "editAggregateFormula": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas/{formula-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Edit Aggregate Formula",
+      "source": "modeling-api"
+    },
+    "deleteAggregateFormula": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas/{formula-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete Aggregate Formula",
+      "source": "modeling-api"
+    },
+    "createEmailSchedule": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create Email Schedule",
+      "source": "modeling-api"
+    },
+    "updateEmailSchedule": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Update Email Schedule",
+      "source": "modeling-api"
+    },
+    "deleteEmailSchedule": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete Email Schedule",
+      "source": "modeling-api"
+    },
+    "triggerEmailSchedule": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}/trigger",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Trigger Email Schedule",
+      "source": "modeling-api"
+    },
+    "changeEmailScheduleStatus": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}/status",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Change Email Schedule Status",
+      "source": "modeling-api"
+    },
+    "createAutoMLAnalysis": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create AutoML Analysis",
+      "source": "modeling-api"
+    },
+    "createAutoMLAnalysisDeployment": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}/deployments",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Create AutoML Analysis Deployment",
+      "source": "modeling-api"
+    },
+    "autoMLWhatIfAnalysis": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}/whatif",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "AutoML What If Analysis",
+      "source": "modeling-api"
+    },
+    "runAutoMLAnalysis": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/deployments/{deployment-id}/execute",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Run AutoML Analysis",
+      "source": "modeling-api"
+    },
+    "deleteAutoMLAnalysisModelDeployment": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/deployments/{deployment-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete AutoML Analysis Model Deployment",
+      "source": "modeling-api"
+    },
+    "deleteAutoMLAnalysisModel": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete AutoML Analysis Model",
+      "source": "modeling-api"
+    },
+    "deleteAutoMLAnalysis": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}",
+      "tags": [
+        "Modeling APIs"
+      ],
+      "summary": "Delete AutoML Analysis",
+      "source": "modeling-api"
+    },
+    "getOrgAdmins": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/orgadmins",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Get Org Admins",
+      "source": "share-api"
+    },
+    "getWorkspaceAdmins": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/admins",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Get Workspace Admins",
+      "source": "share-api"
+    },
+    "addWorkspaceAdmins": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/admins",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Add Workspace Admins",
+      "source": "share-api"
+    },
+    "removeWorkspaceAdmins": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/admins",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Remove Workspace Admins",
+      "source": "share-api"
+    },
+    "getWorkspaceSharedDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/share",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Get Workspace Shared Details",
+      "source": "share-api"
+    },
+    "shareViews": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/share",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Share Views",
+      "source": "share-api"
+    },
+    "removeShare": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/share",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Remove Share",
+      "source": "share-api"
+    },
+    "UpdateSharedDetailsForView": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/views/share",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Update Shared Details For View",
+      "source": "share-api"
+    },
+    "getMyPermissions": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/workspaces/{workspace-id}/views/{view-id}/share/mypermissions",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Get My Permissions",
+      "source": "share-api"
+    },
+    "getSharedDetailsForViews": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/workspaces/{workspace-id}/share/shareddetails",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Get Shared Details For Views",
+      "source": "share-api"
+    },
+    "getGroups": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/workspaces/{workspace-id}/groups",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Get Groups",
+      "source": "share-api"
+    },
+    "createGroup": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/workspaces/{workspace-id}/groups",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Create Group",
+      "source": "share-api"
+    },
+    "getGroupDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/workspaces/{workspace-id}/groups/{group-id}",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Get Group Details",
+      "source": "share-api"
+    },
+    "renameGroup": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/workspaces/{workspace-id}/groups/{group-id}",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Rename Group",
+      "source": "share-api"
+    },
+    "deleteGroup": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/workspaces/{workspace-id}/groups/{group-id}",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Delete Group",
+      "source": "share-api"
+    },
+    "addGroupMembers": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/workspaces/{workspace-id}/groups/{group-id}/members",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Add Group Members",
+      "source": "share-api"
+    },
+    "removeGroupMembers": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/workspaces/{workspace-id}/groups/{group-id}/members",
+      "tags": [
+        "Sharing & Collaboration APIs"
+      ],
+      "summary": "Remove Group Members",
+      "source": "share-api"
+    },
+    "getUsers": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/users",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Get Users",
+      "source": "usermanagement-api"
+    },
+    "addUsers": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/users",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Add Users",
+      "source": "usermanagement-api"
+    },
+    "removeUsers": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/users",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Remove Users",
+      "source": "usermanagement-api"
+    },
+    "activateUsers": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/users/active",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Activate Users",
+      "source": "usermanagement-api"
+    },
+    "deActivateUsers": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/users/inactive",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Deactivate Users",
+      "source": "usermanagement-api"
+    },
+    "changeUserRole": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/users/role",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Change User Role",
+      "source": "usermanagement-api"
+    },
+    "getSubscriptionDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/subscription",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Get Subscription Details",
+      "source": "usermanagement-api"
+    },
+    "getResourceDetails": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/resources",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Get Resource Details",
+      "source": "usermanagement-api"
+    },
+    "getWorkspaceUsers": {
+      "type": "operation",
+      "method": "GET",
+      "path": "/restapi/v2/workspaces/{workspace-id}/users",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Get Workspace Users",
+      "source": "usermanagement-api"
+    },
+    "addWorkspaceUsers": {
+      "type": "operation",
+      "method": "POST",
+      "path": "/restapi/v2/workspaces/{workspace-id}/users",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Add Workspace Users",
+      "source": "usermanagement-api"
+    },
+    "deleteWorkspaceUsers": {
+      "type": "operation",
+      "method": "DELETE",
+      "path": "/restapi/v2/workspaces/{workspace-id}/users",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Delete Workspace Users",
+      "source": "usermanagement-api"
+    },
+    "changeWorkspaceUsersStatus": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/users/status",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Change Workspace Users Status",
+      "source": "usermanagement-api"
+    },
+    "changeWorkspaceUsersRole": {
+      "type": "operation",
+      "method": "PUT",
+      "path": "/restapi/v2/workspaces/{workspace-id}/users/role",
+      "tags": [
+        "User Management APIs"
+      ],
+      "summary": "Change Workspace Users Role",
+      "source": "usermanagement-api"
+    }
+  }
+}
