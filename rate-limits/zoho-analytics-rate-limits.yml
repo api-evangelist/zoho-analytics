@@ -1,0 +1,72 @@
+name: Zoho Analytics API Rate Limits
+description: Rate limits and API unit consumption details for the Zoho Analytics REST API v2
+url: https://www.zoho.com/analytics/api/v2/api-limits-pricing/api-frequency.html
+frequency_limits:
+  description: Maximum number of API requests allowed per minute, by API type
+  window: 1 minute
+  limits:
+    - type: DML
+      description: Data Manipulation Language operations (add, update, delete rows)
+      requests_per_minute: 100
+    - type: BULK
+      description: Bulk data import and export operations
+      requests_per_minute: 40
+    - type: METADATA
+      description: Metadata and administrative operations
+      requests_per_minute: 60
+    - type: OVERALL
+      description: Combined total across all API types
+      requests_per_minute: 100
+  error_code: 6045
+  error_description: Returned when request frequency exceeds allowed thresholds
+daily_api_unit_limits:
+  description: Daily API unit quotas by pricing plan
+  plans:
+    - plan: Free
+      daily_units: 1000
+    - plan: Basic
+      daily_units: 4000
+    - plan: Standard
+      daily_units: 10000
+    - plan: Premium
+      daily_units: 30000
+    - plan: Enterprise
+      daily_units: 100000
+  error_codes:
+    - code: 6043
+      description: Daily API unit limit exceeded
+    - code: 6044
+      description: Daily API unit limit exceeded (secondary)
+  notes:
+    - Add-on units can be purchased to supplement plan limits
+api_unit_costs:
+  description: Number of API units consumed per operation
+  bulk_operations:
+    - operation: Import APPEND or TRUNCATEADD
+      units: 10 per 1000 rows
+    - operation: Import UPDATEADD
+      units: 15 per 1000 rows
+    - operation: Export Chart/Dashboard Image/PDF
+      units: 10-15 per request
+    - operation: Export View as PDF
+      units: 5 per 1000 rows
+    - operation: Export CSV/JSON and other formats
+      units: 3 per 1000 rows
+    - operation: Workspace Copy (no data)
+      units: 25 per request
+    - operation: Workspace Copy (with data)
+      units: 25 per request plus 1 per 1000 rows
+  dml_operations:
+    - operation: Add single row
+      units: 0.1 per request
+    - operation: Update rows
+      units: 0.3 per request
+    - operation: Delete rows
+      units: 0.1 per request
+  metadata_operations:
+    - operation: Job status check
+      units: 0 per request
+    - operation: General metadata operations
+      units: 0.1-5 per request
+    - operation: Add columns
+      units: 15 per request

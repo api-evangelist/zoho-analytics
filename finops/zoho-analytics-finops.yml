@@ -1,0 +1,64 @@
+name: Zoho Analytics FinOps
+description: Financial operations guidance for managing Zoho Analytics API usage and costs
+url: https://www.zoho.com/analytics/pricing.html
+cost_model:
+  type: subscription_plus_usage
+  description: Subscription-based pricing by plan tier with per-unit API consumption tracking
+  billing_dimensions:
+    - dimension: users
+      description: Number of seats on the account
+      notes: Can be increased with add-ons beyond plan minimum
+    - dimension: rows
+      description: Total data rows stored across all workspaces
+      notes: Can be increased with add-ons beyond plan minimum
+    - dimension: api_units
+      description: Daily API units consumed by REST API operations
+      notes: Add-on units purchasable when daily plan limit is reached
+optimization_strategies:
+  - strategy: Choose the right plan tier
+    description: Match plan to actual daily API unit consumption; Free plan provides 1000 units/day which may suffice for low-volume integrations
+    impact: high
+  - strategy: Batch bulk imports efficiently
+    description: Import rows in larger batches to minimize API unit spend; APPEND/TRUNCATEADD costs 10 units per 1000 rows regardless of batch size
+    impact: high
+  - strategy: Use APPEND over UPDATEADD when possible
+    description: APPEND imports cost 10 units per 1000 rows vs 15 units for UPDATEADD; prefer append-only patterns when data allows
+    impact: medium
+  - strategy: Cache metadata API responses
+    description: Most metadata operations cost 0.1-5 units; job status checks cost 0 units; implement local caching to avoid redundant calls
+    impact: medium
+  - strategy: Monitor daily unit consumption
+    description: Track usage against plan limits to avoid error codes 6043/6044; purchase add-on units proactively before hitting limits
+    impact: medium
+  - strategy: Export to CSV/JSON over PDF for data pipelines
+    description: CSV/JSON exports cost 3 units per 1000 rows vs 10-15 units for PDF/image exports; use lightweight formats for automated data pipelines
+    impact: low
+  - strategy: Minimize row-level DML for bulk updates
+    description: Individual row updates cost 0.3 units each; prefer bulk import operations for large-scale data changes
+    impact: medium
+  - strategy: Leverage yearly billing discount
+    description: Annual billing provides 20% discount across all paid plans
+    impact: low
+cost_visibility:
+  - method: API unit tracking via Zoho Analytics admin console
+    description: Monitor daily unit consumption in the account administration panel
+  - method: Error code monitoring
+    description: Intercept error codes 6043/6044 (daily limit) and 6045 (frequency limit) to detect cost and throttling issues in real time
+regional_considerations:
+  - region: US
+    endpoint: analyticsapi.zoho.com
+  - region: EU
+    endpoint: analyticsapi.zoho.eu
+  - region: India
+    endpoint: analyticsapi.zoho.in
+  - region: Australia
+    endpoint: analyticsapi.zoho.com.au
+  - region: Japan
+    endpoint: analyticsapi.zoho.jp
+  - region: Saudi Arabia
+    endpoint: analyticsapi.zoho.sa
+  - region: Canada
+    endpoint: analyticsapi.zohocloud.ca
+  - region: China
+    endpoint: analyticsapi.zoho.com.cn
+  notes: Data residency requirements may mandate specific regional endpoints; verify compliance requirements before selecting a data center region

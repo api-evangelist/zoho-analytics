@@ -1,0 +1,106 @@
+name: Zoho Analytics Plans and Pricing
+description: Pricing plans and feature tiers for Zoho Analytics business intelligence platform
+url: https://www.zoho.com/analytics/pricing.html
+plans:
+  - name: Free
+    description: Entry-level plan for individuals and small teams exploring analytics
+    price: 0
+    currency: USD
+    billingCycle: monthly
+    users: 2
+    features:
+      - rows: 10000
+      - workspaces: 5
+      - unlimited_reports: true
+      - unlimited_dashboards: true
+      - basic_visualizations: true
+      - daily_api_units: 1000
+  - name: Basic
+    description: Small team plan with expanded data capacity and API access
+    currency: USD
+    billingCycle: monthly
+    discount_yearly: 20%
+    users_starting_at: 2
+    features:
+      - rows_starting_at: 500000
+      - unlimited_reports: true
+      - unlimited_dashboards: true
+      - unlimited_workspaces: true
+      - daily_api_units: 4000
+      - data_syncs_per_day: 1-8
+  - name: Standard
+    description: Popular plan for growing teams with more users and data rows
+    currency: USD
+    billingCycle: monthly
+    discount_yearly: 20%
+    users_starting_at: 5
+    features:
+      - rows_starting_at: 1000000
+      - unlimited_reports: true
+      - unlimited_dashboards: true
+      - unlimited_workspaces: true
+      - daily_api_units: 10000
+      - data_syncs_per_day: 1-8
+  - name: Premium
+    description: Advanced plan for larger teams with AI features and expanded capacity
+    currency: USD
+    billingCycle: monthly
+    discount_yearly: 20%
+    users_starting_at: 15
+    features:
+      - rows_starting_at: 5000000
+      - unlimited_reports: true
+      - unlimited_dashboards: true
+      - unlimited_workspaces: true
+      - daily_api_units: 30000
+      - ask_zia_ai_agent: true
+      - diagnostic_insights: true
+      - smart_recommendations: true
+      - advanced_data_preparation: true
+      - premium_erp_connectors: true
+      - custom_roles: true
+      - organization_admins: true
+      - activity_logs: true
+      - access_logs: true
+      - custom_connectors: true
+      - zoho_flow_integration: true
+      - data_syncs_per_day: up-to-24
+  - name: Enterprise
+    description: Full-featured plan for large organizations with maximum data capacity
+    currency: USD
+    billingCycle: monthly
+    discount_yearly: 20%
+    users_starting_at: 50
+    features:
+      - rows_starting_at: 50000000
+      - unlimited_reports: true
+      - unlimited_dashboards: true
+      - unlimited_workspaces: true
+      - daily_api_units: 100000
+      - ask_zia_ai_agent: true
+      - diagnostic_insights: true
+      - smart_recommendations: true
+      - advanced_data_preparation: true
+      - premium_erp_connectors: true
+      - custom_roles: true
+      - organization_admins: true
+      - activity_logs: true
+      - access_logs: true
+      - custom_connectors: true
+      - zoho_flow_integration: true
+      - data_syncs_per_day: up-to-24
+  - name: Dedicated Compute
+    description: Isolated, exclusive computing resources for enterprise-scale analytics
+    price: custom
+    currency: USD
+    billingCycle: monthly
+    users_starting_at: 50
+    features:
+      - rows_starting_at: 500000000
+      - isolated_compute: true
+      - exclusive_resources: true
+      - all_enterprise_features: true
+notes:
+  - API unit add-ons are available for purchase beyond plan limits
+  - Yearly billing provides 20% discount on all paid plans
+  - User count and row limits can be expanded with add-ons
