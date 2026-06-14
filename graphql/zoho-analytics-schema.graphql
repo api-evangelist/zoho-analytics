@@ -1,0 +1,1223 @@
+"""
+Zoho Analytics GraphQL Schema
+Conceptual schema modeled from the Zoho Analytics REST API v2.
+Reference: https://www.zoho.com/analytics/api/
+"""
+
+# ─────────────────────────────────────────────
+# Scalars
+# ─────────────────────────────────────────────
+
+scalar DateTime
+scalar JSON
+scalar Long
+
+# ─────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────
+
+enum DataType {
+  PLAIN
+  NUMBER
+  DECIMAL_NUMBER
+  CURRENCY
+  DATE
+  DATE_TIME
+  BOOLEAN
+  LOOKUP
+  FORMULA
+  AUTO_NUMBER
+  URL
+  EMAIL
+  MULTI_LINE
+}
+
+enum ChartType {
+  BAR
+  STACKED_BAR
+  LINE
+  AREA
+  PIE
+  DONUT
+  SCATTER
+  BUBBLE
+  FUNNEL
+  HEAT_MAP
+  GEO_MAP
+  COMBO
+  HISTOGRAM
+  BOX_WHISKER
+  WATERFALL
+  WORD_CLOUD
+  RING
+}
+
+enum AggregateFunction {
+  SUM
+  COUNT
+  AVERAGE
+  MAX
+  MIN
+  DISTINCT_COUNT
+  VARIANCE
+  STANDARD_DEVIATION
+  MEDIAN
+  PERCENTILE
+}
+
+enum SortOrder {
+  ASCENDING
+  DESCENDING
+}
+
+enum ImportType {
+  APPEND
+  TRUNCATE_AND_ADD
+  UPDATE_AND_ADD
+  DELETE
+  MATCHED_UPDATE
+  TRUNCATE_AND_ADD_WITH_BACKUP
+}
+
+enum FileType {
+  CSV
+  TSV
+  JSON
+  XLSX
+  XML
+  LOCAL_FILE
+}
+
+enum ShareType {
+  PUBLIC
+  PRIVATE
+  BY_ROLE
+  BY_USER
+}
+
+enum Permission {
+  READ
+  READ_WRITE
+  OWNER
+  EMBED_READ
+  EXPORT
+}
+
+enum AlertType {
+  THRESHOLD
+  TREND
+  ANOMALY
+  CUSTOM
+}
+
+enum AlertStatus {
+  ACTIVE
+  INACTIVE
+  TRIGGERED
+}
+
+enum WebhookMethod {
+  GET
+  POST
+  PUT
+  PATCH
+  DELETE
+}
+
+enum JoinType {
+  INNER
+  LEFT
+  RIGHT
+  FULL
+}
+
+enum FilterOperator {
+  EQUALS
+  NOT_EQUALS
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL
+  LESS_THAN
+  LESS_THAN_OR_EQUAL
+  CONTAINS
+  NOT_CONTAINS
+  STARTS_WITH
+  ENDS_WITH
+  IS_NULL
+  IS_NOT_NULL
+  IN
+  NOT_IN
+  BETWEEN
+}
+
+enum ViewType {
+  TABLE
+  QUERY_TABLE
+  REPORT
+  DASHBOARD
+  PIVOT
+  SUMMARY
+  KPI
+  TABULAR
+}
+
+# ─────────────────────────────────────────────
+# Organization and Auth
+# ─────────────────────────────────────────────
+
+"""
+High-level details about the Zoho Analytics organization/account.
+"""
+type OrganizationDetails {
+  orgId: ID!
+  orgName: String!
+  ownerId: ID!
+  ownerEmail: String!
+  plan: String
+  region: String
+  createdTime: DateTime
+  modifiedTime: DateTime
+  status: String
+  userCount: Int
+  workspaceCount: Int
+  apiUsage: Long
+}
+
+"""
+Represents a Zoho OAuth 2.0 access token.
+"""
+type OAuthToken {
+  accessToken: String!
+  refreshToken: String
+  tokenType: String
+  expiresIn: Int
+  scope: String
+  apiDomain: String
+}
+
+"""
+An API key credential for Zoho Analytics programmatic access.
+"""
+type APIKey {
+  keyId: ID!
+  keyName: String!
+  createdTime: DateTime
+  lastUsedTime: DateTime
+  status: String
+  permissions: [Permission!]
+}
+
+# ─────────────────────────────────────────────
+# Workspace
+# ─────────────────────────────────────────────
+
+"""
+A Zoho Analytics workspace (top-level container for databases/views).
+"""
+type Workspace {
+  workspaceId: ID!
+  workspaceName: String!
+  description: String
+  owner: WorkspaceOwner
+  details: WorkspaceDetails
+  stats: WorkspaceStat
+  databases: [Database!]
+  createdTime: DateTime
+  modifiedTime: DateTime
+  isDefault: Boolean
+  isShared: Boolean
+}
+
+"""
+Extended metadata for a workspace.
+"""
+type WorkspaceDetails {
+  workspaceId: ID!
+  workspaceName: String!
+  description: String
+  owner: WorkspaceOwner
+  region: String
+  logoUrl: String
+  isPublic: Boolean
+  sharedWith: [ShareConfig!]
+  tags: [String]
+}
+
+"""
+The owner of a workspace.
+"""
+type WorkspaceOwner {
+  userId: ID!
+  displayName: String!
+  email: String!
+  avatarUrl: String
+}
+
+"""
+Usage and size statistics for a workspace.
+"""
+type WorkspaceStat {
+  workspaceId: ID!
+  databaseCount: Int!
+  viewCount: Int!
+  rowCount: Long
+  storageSizeBytes: Long
+  lastImportTime: DateTime
+  apiCallCount: Long
+}
+
+# ─────────────────────────────────────────────
+# Database
+# ─────────────────────────────────────────────
+
+"""
+A database within a Zoho Analytics workspace.
+"""
+type Database {
+  dbId: ID!
+  dbName: String!
+  description: String
+  workspaceId: ID!
+  details: DatabaseDetails
+  tables: [DatabaseTable!]
+  createdTime: DateTime
+  modifiedTime: DateTime
+  isDefault: Boolean
+}
+
+"""
+Extended metadata for a database.
+"""
+type DatabaseDetails {
+  dbId: ID!
+  dbName: String!
+  description: String
+  workspaceId: ID!
+  tableCount: Int
+  viewCount: Int
+  rowCount: Long
+  storageSizeBytes: Long
+  createdTime: DateTime
+  modifiedTime: DateTime
+  tags: [String]
+}
+
+"""
+A reference to a table within a database listing.
+"""
+type DatabaseTable {
+  tableId: ID!
+  tableName: String!
+  dbId: ID!
+  viewType: ViewType
+  rowCount: Long
+  createdTime: DateTime
+  modifiedTime: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Table
+# ─────────────────────────────────────────────
+
+"""
+A full table object with columns and metadata.
+"""
+type Table {
+  tableId: ID!
+  tableName: String!
+  dbId: ID!
+  workspaceId: ID!
+  description: String
+  columns: [Column!]
+  details: TableDetails
+  meta: TableMeta
+  createdTime: DateTime
+  modifiedTime: DateTime
+}
+
+"""
+Extended details for a table.
+"""
+type TableDetails {
+  tableId: ID!
+  tableName: String!
+  description: String
+  columnCount: Int!
+  rowCount: Long
+  lastImportTime: DateTime
+  importConfig: ImportConfig
+  tags: [String]
+}
+
+"""
+A single data row from a table query.
+"""
+type TableRow {
+  rowId: ID
+  data: JSON!
+}
+
+"""
+Metadata describing the structure and schema of a table.
+"""
+type TableMeta {
+  tableId: ID!
+  tableName: String!
+  columns: [ColumnDetails!]!
+  primaryKey: String
+  foreignKeys: [String]
+  createdTime: DateTime
+  modifiedTime: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Columns
+# ─────────────────────────────────────────────
+
+"""
+A column within a table or view.
+"""
+type Column {
+  columnId: ID!
+  columnName: String!
+  dataType: DataType!
+  tableId: ID!
+  isNullable: Boolean
+  defaultValue: String
+  description: String
+  displayName: String
+  isSystemColumn: Boolean
+}
+
+"""
+Detailed metadata for a column including formula info.
+"""
+type ColumnDetails {
+  columnId: ID!
+  columnName: String!
+  displayName: String
+  dataType: DataType!
+  tableId: ID!
+  isNullable: Boolean
+  defaultValue: String
+  description: String
+  isSystemColumn: Boolean
+  isFormula: Boolean
+  formulaExpression: String
+  isLookup: Boolean
+  lookupColumnId: ID
+  maxLength: Int
+  decimalPlaces: Int
+  format: String
+}
+
+# ─────────────────────────────────────────────
+# View
+# ─────────────────────────────────────────────
+
+"""
+A view (query table, report, dashboard, pivot, etc.) in Zoho Analytics.
+"""
+type View {
+  viewId: ID!
+  viewName: String!
+  viewType: ViewType!
+  dbId: ID!
+  workspaceId: ID!
+  description: String
+  query: ViewQuery
+  createdTime: DateTime
+  modifiedTime: DateTime
+  createdBy: WorkspaceOwner
+  isShared: Boolean
+}
+
+"""
+The underlying query definition for a view or query table.
+"""
+type ViewQuery {
+  viewId: ID!
+  sqlQuery: String
+  criteriaFilter: String
+  joinDetails: [JoinDetails]
+  sortOrders: [SortOrder]
+  columns: [Column]
+  filters: [Filter]
+}
+
+# ─────────────────────────────────────────────
+# Report
+# ─────────────────────────────────────────────
+
+"""
+A report (chart, pivot, summary, KPI, or tabular view).
+"""
+type Report {
+  reportId: ID!
+  reportName: String!
+  dbId: ID!
+  workspaceId: ID!
+  viewType: ViewType!
+  chartType: ChartType
+  description: String
+  details: ReportDetails
+  createdTime: DateTime
+  modifiedTime: DateTime
+  createdBy: WorkspaceOwner
+}
+
+"""
+Full report definition including axes, filters, and style.
+"""
+type ReportDetails {
+  reportId: ID!
+  reportName: String!
+  viewType: ViewType!
+  chartType: ChartType
+  xAxis: [Column]
+  yAxis: [Column]
+  legendColumn: Column
+  filters: [Filter]
+  sortOrders: [SortOrder]
+  aggregation: BaseAggregation
+  styleConfig: JSON
+  embedConfig: EmbedConfig
+  shareConfig: ShareConfig
+  description: String
+}
+
+"""
+A pivot table configuration.
+"""
+type PivotTable {
+  viewId: ID!
+  viewName: String!
+  rowDimensions: [Column!]
+  columnDimensions: [Column!]
+  values: [AggregateFormula!]
+  filters: [Filter]
+  grandTotal: Boolean
+  subTotal: Boolean
+}
+
+"""
+A summary view grouping rows by dimensions and computing aggregates.
+"""
+type SummaryWidget {
+  viewId: ID!
+  viewName: String!
+  groupByColumns: [Column!]
+  aggregateColumns: [AggregateFormula!]
+  filters: [Filter]
+  sortOrders: [SortOrder]
+  topN: Int
+}
+
+"""
+A KPI widget showing a single metric with trend or target comparison.
+"""
+type KPIWidget {
+  viewId: ID!
+  viewName: String!
+  metric: AggregateFormula!
+  comparisonMetric: AggregateFormula
+  target: Float
+  trendEnabled: Boolean
+  filters: [Filter]
+  displayFormat: String
+}
+
+"""
+A tabular report showing data in a flat grid layout.
+"""
+type Tabular {
+  viewId: ID!
+  viewName: String!
+  columns: [Column!]!
+  filters: [Filter]
+  sortOrders: [SortOrder]
+  groupBy: [Column]
+  aggregates: [AggregateFormula]
+  rowLimit: Int
+}
+
+# ─────────────────────────────────────────────
+# Dashboard
+# ─────────────────────────────────────────────
+
+"""
+A dashboard composing multiple reports and widgets.
+"""
+type Dashboard {
+  dashboardId: ID!
+  dashboardName: String!
+  dbId: ID!
+  workspaceId: ID!
+  description: String
+  details: DashboardDetails
+  slides: [DashboardSlide]
+  urls: [DashboardURL]
+  createdTime: DateTime
+  modifiedTime: DateTime
+  createdBy: WorkspaceOwner
+  isShared: Boolean
+}
+
+"""
+Full metadata and layout for a dashboard.
+"""
+type DashboardDetails {
+  dashboardId: ID!
+  dashboardName: String!
+  description: String
+  slideCount: Int
+  autoRefreshEnabled: Boolean
+  autoRefreshIntervalSeconds: Int
+  filterEnabled: Boolean
+  themeConfig: JSON
+  embedConfig: EmbedConfig
+  shareConfig: ShareConfig
+}
+
+"""
+A single slide (page) within a multi-slide dashboard.
+"""
+type DashboardSlide {
+  slideId: ID!
+  slideName: String!
+  dashboardId: ID!
+  slideOrder: Int!
+  layoutConfig: JSON
+  views: [View]
+}
+
+"""
+A URL reference for accessing or sharing a dashboard.
+"""
+type DashboardURL {
+  dashboardId: ID!
+  publicURL: String
+  embedURL: String
+  privateURL: String
+  expiresAt: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Formulas and Aggregation
+# ─────────────────────────────────────────────
+
+"""
+A user-defined formula column in Zoho Analytics.
+"""
+type Formula {
+  formulaId: ID!
+  formulaName: String!
+  expression: String!
+  dataType: DataType!
+  tableId: ID!
+  description: String
+  isAggregate: Boolean
+}
+
+"""
+A formula that applies an aggregate function over a column.
+"""
+type AggregateFormula {
+  columnId: ID!
+  columnName: String!
+  aggregateFunction: AggregateFunction!
+  alias: String
+  filterCriteria: FilterCriteria
+  dataType: DataType
+}
+
+"""
+A column from a related (looked-up) table.
+"""
+type RelatedColumn {
+  columnId: ID!
+  columnName: String!
+  relatedTableId: ID!
+  relatedTableName: String!
+  joinType: JoinType!
+  dataType: DataType!
+}
+
+"""
+Base aggregation applied across a report or view.
+"""
+type BaseAggregation {
+  groupByColumns: [Column]
+  aggregateFormulas: [AggregateFormula!]!
+  having: FilterCriteria
+}
+
+# ─────────────────────────────────────────────
+# Filters
+# ─────────────────────────────────────────────
+
+"""
+A filter applied to constrain the rows returned in a view or report.
+"""
+type Filter {
+  filterId: ID!
+  columnId: ID!
+  columnName: String!
+  operator: FilterOperator!
+  value: String
+  values: [String]
+  dataType: DataType
+  isCaseSensitive: Boolean
+}
+
+"""
+Criteria used in a filter expression.
+"""
+type FilterCriteria {
+  expression: String!
+  columns: [String]
+  parameters: JSON
+}
+
+"""
+A conditional filter applied only when a specific condition is met.
+"""
+type ConditionalFilter {
+  filterId: ID!
+  condition: FilterCriteria!
+  thenFilter: Filter!
+  elseFilter: Filter
+}
+
+# ─────────────────────────────────────────────
+# Joins
+# ─────────────────────────────────────────────
+
+"""
+A join between two tables or views.
+"""
+type Join {
+  joinId: ID!
+  joinType: JoinType!
+  leftTableId: ID!
+  rightTableId: ID!
+  leftColumnId: ID!
+  rightColumnId: ID!
+  details: JoinDetails
+}
+
+"""
+Detailed join mapping including multiple join conditions.
+"""
+type JoinDetails {
+  joinId: ID!
+  joinType: JoinType!
+  leftTable: DatabaseTable!
+  rightTable: DatabaseTable!
+  conditions: [JoinCondition!]!
+}
+
+"""
+A single condition within a join definition.
+"""
+type JoinCondition {
+  leftColumn: Column!
+  rightColumn: Column!
+  operator: FilterOperator!
+}
+
+# ─────────────────────────────────────────────
+# Import
+# ─────────────────────────────────────────────
+
+"""
+Configuration for a data import operation.
+"""
+type ImportConfig {
+  importType: ImportType!
+  fileType: FileType
+  autoIdentify: Boolean
+  onError: String
+  encoding: String
+  delimiter: String
+  qualifier: String
+  skipTop: Int
+  hasHeader: Boolean
+  batchSize: Int
+  columnMapping: JSON
+  dateFormat: String
+  thousandSeparator: String
+  decimalSeparator: String
+}
+
+"""
+The result returned after a data import operation.
+"""
+type ImportResult {
+  importId: ID!
+  tableId: ID!
+  tableName: String!
+  importType: ImportType!
+  totalRows: Long!
+  successRows: Long!
+  failedRows: Long
+  skippedRows: Long
+  startTime: DateTime
+  endTime: DateTime
+  status: String!
+  errorDetails: [JSON]
+}
+
+# ─────────────────────────────────────────────
+# Sharing and Embedding
+# ─────────────────────────────────────────────
+
+"""
+Sharing configuration for a view, report, or dashboard.
+"""
+type ShareConfig {
+  shareId: ID!
+  viewId: ID!
+  shareType: ShareType!
+  permissions: [Permission!]!
+  sharedWith: [String]
+  expiresAt: DateTime
+  password: String
+  filterEnabled: Boolean
+  allowExport: Boolean
+}
+
+"""
+A publicly accessible share URL for a view or report.
+"""
+type ShareURL {
+  shareId: ID!
+  viewId: ID!
+  url: String!
+  expiresAt: DateTime
+  isPasswordProtected: Boolean
+  viewCount: Long
+  lastAccessedTime: DateTime
+}
+
+"""
+A URL for embedding a view, report, or dashboard in a web application.
+"""
+type EmbedURL {
+  viewId: ID!
+  embedUrl: String!
+  iframeCode: String
+  expiresAt: DateTime
+  tokenRequired: Boolean
+}
+
+"""
+Configuration for generating an embed URL.
+"""
+type EmbedConfig {
+  showHeader: Boolean
+  showBorder: Boolean
+  showTitle: Boolean
+  showExportOptions: Boolean
+  showFilterOptions: Boolean
+  showPrintOption: Boolean
+  allowFilter: Boolean
+  theme: String
+  width: Int
+  height: Int
+  customCSS: String
+  filters: [Filter]
+}
+
+# ─────────────────────────────────────────────
+# Alerts and Webhooks
+# ─────────────────────────────────────────────
+
+"""
+A data alert that monitors metric thresholds or trends.
+"""
+type DataAlert {
+  alertId: ID!
+  alertName: String!
+  dbId: ID!
+  workspaceId: ID!
+  viewId: ID!
+  alertType: AlertType!
+  status: AlertStatus!
+  config: AlertConfig!
+  schedule: AlertSchedule
+  notifications: [AlertNotification]
+  createdTime: DateTime
+  modifiedTime: DateTime
+  lastTriggeredTime: DateTime
+}
+
+"""
+The configuration defining when an alert is triggered.
+"""
+type AlertConfig {
+  alertType: AlertType!
+  metric: AggregateFormula!
+  operator: FilterOperator
+  threshold: Float
+  percentChange: Float
+  filters: [Filter]
+  lookbackPeriod: String
+}
+
+"""
+The schedule on which an alert is evaluated.
+"""
+type AlertSchedule {
+  scheduleType: String!
+  frequency: String
+  hour: Int
+  minute: Int
+  dayOfWeek: String
+  dayOfMonth: Int
+  timezone: String
+}
+
+"""
+A notification sent when a data alert is triggered.
+"""
+type AlertNotification {
+  notificationId: ID!
+  alertId: ID!
+  channel: String!
+  recipients: [String!]!
+  subject: String
+  message: String
+  webhookId: ID
+  sentTime: DateTime
+  status: String
+}
+
+"""
+A webhook endpoint registered to receive Zoho Analytics event notifications.
+"""
+type Webhook {
+  webhookId: ID!
+  webhookName: String!
+  url: String!
+  method: WebhookMethod!
+  headers: JSON
+  secret: String
+  events: [String!]!
+  isActive: Boolean!
+  createdTime: DateTime
+  modifiedTime: DateTime
+  lastTriggeredTime: DateTime
+  failureCount: Int
+}
+
+# ─────────────────────────────────────────────
+# Trash
+# ─────────────────────────────────────────────
+
+"""
+Represents an item in the Zoho Analytics trash bin pending permanent deletion.
+"""
+type TrashBin {
+  trashId: ID!
+  itemId: ID!
+  itemName: String!
+  itemType: ViewType!
+  dbId: ID!
+  workspaceId: ID!
+  deletedBy: WorkspaceOwner
+  deletedTime: DateTime!
+  expiresAt: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Input Types
+# ─────────────────────────────────────────────
+
+input CreateWorkspaceInput {
+  workspaceName: String!
+  description: String
+}
+
+input CreateDatabaseInput {
+  dbName: String!
+  description: String
+}
+
+input CreateTableInput {
+  tableName: String!
+  description: String
+  columns: [ColumnInput!]!
+}
+
+input AddColumnInput {
+  columnName: String!
+  dataType: DataType!
+  isNullable: Boolean
+  defaultValue: String
+  description: String
+}
+
+input ColumnInput {
+  columnName: String!
+  dataType: DataType!
+  isNullable: Boolean
+  defaultValue: String
+  description: String
+}
+
+input ImportDataInput {
+  importType: ImportType!
+  fileType: FileType
+  data: String
+  config: ImportConfigInput
+}
+
+input ImportConfigInput {
+  autoIdentify: Boolean
+  onError: String
+  encoding: String
+  delimiter: String
+  qualifier: String
+  skipTop: Int
+  hasHeader: Boolean
+  batchSize: Int
+  columnMapping: JSON
+  dateFormat: String
+}
+
+input CreateReportInput {
+  reportName: String!
+  viewType: ViewType!
+  chartType: ChartType
+  description: String
+  sourceTableId: ID!
+  xAxisColumns: [ID]
+  yAxisColumns: [ID]
+  filters: [FilterInput]
+}
+
+input CreateDashboardInput {
+  dashboardName: String!
+  description: String
+}
+
+input ShareConfigInput {
+  shareType: ShareType!
+  permissions: [Permission!]!
+  sharedWith: [String]
+  expiresAt: DateTime
+  password: String
+  allowExport: Boolean
+}
+
+input EmbedConfigInput {
+  showHeader: Boolean
+  showBorder: Boolean
+  showTitle: Boolean
+  showExportOptions: Boolean
+  allowFilter: Boolean
+  theme: String
+  width: Int
+  height: Int
+  filters: [FilterInput]
+}
+
+input FilterInput {
+  columnId: ID!
+  operator: FilterOperator!
+  value: String
+  values: [String]
+  isCaseSensitive: Boolean
+}
+
+input CreateDataAlertInput {
+  alertName: String!
+  viewId: ID!
+  alertType: AlertType!
+  config: AlertConfigInput!
+  schedule: AlertScheduleInput
+}
+
+input AlertConfigInput {
+  metricColumnId: ID!
+  aggregateFunction: AggregateFunction!
+  operator: FilterOperator
+  threshold: Float
+  percentChange: Float
+  filters: [FilterInput]
+  lookbackPeriod: String
+}
+
+input AlertScheduleInput {
+  scheduleType: String!
+  frequency: String
+  hour: Int
+  minute: Int
+  dayOfWeek: String
+  dayOfMonth: Int
+  timezone: String
+}
+
+input CreateWebhookInput {
+  webhookName: String!
+  url: String!
+  method: WebhookMethod!
+  headers: JSON
+  secret: String
+  events: [String!]!
+}
+
+# ─────────────────────────────────────────────
+# Root Types
+# ─────────────────────────────────────────────
+
+type Query {
+  """Fetch organization details."""
+  organization: OrganizationDetails
+
+  """List all workspaces accessible to the authenticated user."""
+  workspaces: [Workspace!]
+
+  """Fetch a single workspace by ID."""
+  workspace(workspaceId: ID!): Workspace
+
+  """List databases in a workspace."""
+  databases(workspaceId: ID!): [Database!]
+
+  """Fetch a single database."""
+  database(workspaceId: ID!, dbId: ID!): Database
+
+  """List tables in a database."""
+  tables(workspaceId: ID!, dbId: ID!): [Table!]
+
+  """Fetch a single table."""
+  table(workspaceId: ID!, dbId: ID!, tableId: ID!): Table
+
+  """Fetch table rows with optional filtering and pagination."""
+  tableRows(
+    workspaceId: ID!
+    dbId: ID!
+    tableId: ID!
+    filter: String
+    limit: Int
+    offset: Int
+    sortBy: String
+    sortOrder: SortOrder
+  ): [TableRow!]
+
+  """Fetch table metadata."""
+  tableMeta(workspaceId: ID!, dbId: ID!, tableId: ID!): TableMeta
+
+  """List all views in a database."""
+  views(workspaceId: ID!, dbId: ID!): [View!]
+
+  """Fetch a single view."""
+  view(workspaceId: ID!, dbId: ID!, viewId: ID!): View
+
+  """List all reports in a database."""
+  reports(workspaceId: ID!, dbId: ID!): [Report!]
+
+  """Fetch a single report."""
+  report(workspaceId: ID!, dbId: ID!, reportId: ID!): Report
+
+  """List all dashboards in a database."""
+  dashboards(workspaceId: ID!, dbId: ID!): [Dashboard!]
+
+  """Fetch a single dashboard."""
+  dashboard(workspaceId: ID!, dbId: ID!, dashboardId: ID!): Dashboard
+
+  """List data alerts in a database."""
+  dataAlerts(workspaceId: ID!, dbId: ID!): [DataAlert!]
+
+  """Fetch a single data alert."""
+  dataAlert(workspaceId: ID!, dbId: ID!, alertId: ID!): DataAlert
+
+  """List webhooks registered for the organization."""
+  webhooks: [Webhook!]
+
+  """Fetch a single webhook."""
+  webhook(webhookId: ID!): Webhook
+
+  """List items in the trash bin."""
+  trashBin(workspaceId: ID!, dbId: ID!): [TrashBin!]
+
+  """Fetch API keys for the authenticated user."""
+  apiKeys: [APIKey!]
+}
+
+type Mutation {
+  """Create a new workspace."""
+  createWorkspace(input: CreateWorkspaceInput!): Workspace
+
+  """Delete a workspace."""
+  deleteWorkspace(workspaceId: ID!): Boolean
+
+  """Create a new database within a workspace."""
+  createDatabase(workspaceId: ID!, input: CreateDatabaseInput!): Database
+
+  """Delete a database."""
+  deleteDatabase(workspaceId: ID!, dbId: ID!): Boolean
+
+  """Create a new table."""
+  createTable(workspaceId: ID!, dbId: ID!, input: CreateTableInput!): Table
+
+  """Delete a table."""
+  deleteTable(workspaceId: ID!, dbId: ID!, tableId: ID!): Boolean
+
+  """Add a column to an existing table."""
+  addColumn(workspaceId: ID!, dbId: ID!, tableId: ID!, input: AddColumnInput!): Column
+
+  """Delete a column."""
+  deleteColumn(workspaceId: ID!, dbId: ID!, tableId: ID!, columnId: ID!): Boolean
+
+  """Import data into a table."""
+  importData(workspaceId: ID!, dbId: ID!, tableId: ID!, input: ImportDataInput!): ImportResult
+
+  """Export data from a table or view as a download URL."""
+  exportData(workspaceId: ID!, dbId: ID!, viewId: ID!, fileType: FileType!): String
+
+  """Create a report."""
+  createReport(workspaceId: ID!, dbId: ID!, input: CreateReportInput!): Report
+
+  """Delete a report."""
+  deleteReport(workspaceId: ID!, dbId: ID!, reportId: ID!): Boolean
+
+  """Create a dashboard."""
+  createDashboard(workspaceId: ID!, dbId: ID!, input: CreateDashboardInput!): Dashboard
+
+  """Delete a dashboard."""
+  deleteDashboard(workspaceId: ID!, dbId: ID!, dashboardId: ID!): Boolean
+
+  """Share a view, report, or dashboard."""
+  shareView(workspaceId: ID!, dbId: ID!, viewId: ID!, input: ShareConfigInput!): ShareConfig
+
+  """Remove sharing from a view."""
+  unshareView(workspaceId: ID!, dbId: ID!, viewId: ID!): Boolean
+
+  """Generate an embed URL for a view."""
+  generateEmbedURL(workspaceId: ID!, dbId: ID!, viewId: ID!, input: EmbedConfigInput!): EmbedURL
+
+  """Create a data alert."""
+  createDataAlert(workspaceId: ID!, dbId: ID!, input: CreateDataAlertInput!): DataAlert
+
+  """Update a data alert."""
+  updateDataAlert(workspaceId: ID!, dbId: ID!, alertId: ID!, input: CreateDataAlertInput!): DataAlert
+
+  """Delete a data alert."""
+  deleteDataAlert(workspaceId: ID!, dbId: ID!, alertId: ID!): Boolean
+
+  """Register a webhook."""
+  createWebhook(input: CreateWebhookInput!): Webhook
+
+  """Update a webhook."""
+  updateWebhook(webhookId: ID!, input: CreateWebhookInput!): Webhook
+
+  """Delete a webhook."""
+  deleteWebhook(webhookId: ID!): Boolean
+
+  """Restore an item from the trash bin."""
+  restoreFromTrash(workspaceId: ID!, dbId: ID!, trashId: ID!): Boolean
+
+  """Permanently delete an item from the trash bin."""
+  permanentlyDelete(workspaceId: ID!, dbId: ID!, trashId: ID!): Boolean
+}

@@ -1,74 +1,73 @@
 aid: zoho-analytics
 name: Zoho Analytics
-description: >-
-  Zoho Analytics is a business intelligence and self-service analytics platform
-  that provides a REST API for managing workspaces, views, reports, dashboards,
-  data import and export, and sharing analytics content. The API enables ISVs,
-  developers, and system integrators to embed powerful reporting and analytical
-  capabilities into their applications. It supports OAuth 2.0 authentication,
-  regional endpoints across eight data centers, and provides SDKs for Java,
-  C#, Python, PHP, Go, and Node.js.
+description: Zoho Analytics is a business intelligence and self-service analytics
+  platform that provides a REST API for managing workspaces, views, reports, dashboards,
+  data import and export, and sharing analytics content. The API enables ISVs, developers,
+  and system integrators to embed powerful reporting and analytical capabilities into
+  their applications. It supports OAuth 2.0 authentication, regional endpoints across
+  eight data centers, and provides SDKs for Java, C#, Python, PHP, Go, and Node.js.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/zoho-analytics/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.19'
 tags:
+- Business Intelligence
+- Analytics
+- Dashboards
+- Reports
+- Data Import
+- Data Export
+- Workspaces
+- Visualizations
+apis:
+- aid: zoho-analytics:zoho-analytics-api
+  name: Zoho Analytics API
+  description: REST API v2 for Zoho Analytics providing programmatic access to workspaces,
+    views, reports, dashboards, bulk data import and export, metadata management,
+    embedding, sharing, and user management operations.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
   - Business Intelligence
   - Analytics
-  - Dashboards
-  - Reports
-  - Data Import
-  - Data Export
-  - Workspaces
-  - Visualizations
-apis:
-  - aid: zoho-analytics:zoho-analytics-api
-    name: Zoho Analytics API
-    description: >-
-      REST API v2 for Zoho Analytics providing programmatic access to
-      workspaces, views, reports, dashboards, bulk data import and export,
-      metadata management, embedding, sharing, and user management operations.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://www.zoho.com/analytics/api/
-    baseURL: https://analyticsapi.zoho.com/restapi/v2
-    tags:
-      - Business Intelligence
-      - Analytics
-      - REST API
-    properties:
-      - type: Documentation
-        url: https://www.zoho.com/analytics/api/v2/
-      - type: OpenAPI
-        url: https://github.com/zoho/analytics-oas
-      - type: Authentication
-        url: https://www.zoho.com/analytics/api/v2/api-specification.html
-    contact:
-      - FN: Zoho Analytics Support
-        url: https://www.zoho.com/analytics/help/
-common:
-  - type: Website
-    url: https://www.zoho.com/analytics/
+  - REST API
+  properties:
   - type: Documentation
     url: https://www.zoho.com/analytics/api/v2/
-  - type: GitHubOrg
-    url: https://github.com/zoho
-  - type: LinkedIn
-    url: https://www.linkedin.com/showcase/zohoanalytics/
-  - type: Blog
-    url: https://www.zoho.com/analytics/blog/
-  - type: Pricing
-    url: https://www.zoho.com/analytics/pricing.html
-  - type: StatusPage
-    url: https://status.zoho.com/
-  - type: X
-    url: https://x.com/ZohoAnalytics
-  - type: Plans
-    url: plans/zoho-analytics-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/zoho-analytics-rate-limits.yml
-  - type: FinOps
-    url: finops/zoho-analytics-finops.yml
+  - type: OpenAPI
+    url: https://github.com/zoho/analytics-oas
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - url: graphql/zoho-analytics-graphql.md
+    type: GraphQL
+  contact:
+  - FN: Zoho Analytics Support
+    url: https://www.zoho.com/analytics/help/
+common:
+- type: Website
+  url: https://www.zoho.com/analytics/
+- type: Documentation
+  url: https://www.zoho.com/analytics/api/v2/
+- type: GitHubOrg
+  url: https://github.com/zoho
+- type: LinkedIn
+  url: https://www.linkedin.com/showcase/zohoanalytics/
+- type: Blog
+  url: https://www.zoho.com/analytics/blog/
+- type: Pricing
+  url: https://www.zoho.com/analytics/pricing.html
+- type: StatusPage
+  url: https://status.zoho.com/
+- type: X
+  url: https://x.com/ZohoAnalytics
+- type: Plans
+  url: plans/zoho-analytics-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/zoho-analytics-rate-limits.yml
+- type: FinOps
+  url: finops/zoho-analytics-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
