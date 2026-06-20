@@ -6,7 +6,7 @@ description: Zoho Analytics is a business intelligence and self-service analytic
   and system integrators to embed powerful reporting and analytical capabilities into
   their applications. It supports OAuth 2.0 authentication, regional endpoints across
   eight data centers, and provides SDKs for Java, C#, Python, PHP, Go, and Node.js.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/zoho-analytics/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -26,7 +26,7 @@ apis:
   description: REST API v2 for Zoho Analytics providing programmatic access to workspaces,
     views, reports, dashboards, bulk data import and export, metadata management,
     embedding, sharing, and user management operations.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.zoho.com/analytics/api/
   baseURL: https://analyticsapi.zoho.com/restapi/v2
   tags:
