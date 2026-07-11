@@ -46,6 +46,10 @@ apis:
   - FN: Zoho Analytics Support
     url: https://www.zoho.com/analytics/help/
 common:
+- type: Authentication
+  url: authentication/zoho-analytics-authentication.yml
+- type: OAuthScopes
+  url: scopes/zoho-analytics-scopes.yml
 - type: Website
   url: https://www.zoho.com/analytics/
 - type: Documentation

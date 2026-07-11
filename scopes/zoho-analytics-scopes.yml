@@ -1,0 +1,242 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bulk-api.json, openapi/data-api.json, openapi/embed-api.json, openapi/metadata-api.json,
+  openapi/modeling-api.json, openapi/share-api.json, openapi/usermanagement-api.json
+schemes:
+- name: iam-oauth2-schema
+  source: openapi/bulk-api.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+- name: iam-oauth2-schema
+  source: openapi/data-api.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+- name: iam-oauth2-schema
+  source: openapi/embed-api.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+- name: iam-oauth2-schema
+  source: openapi/metadata-api.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+- name: iam-oauth2-schema
+  source: openapi/modeling-api.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+- name: iam-oauth2-schema
+  source: openapi/share-api.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+- name: iam-oauth2-schema
+  source: openapi/usermanagement-api.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+scopes:
+- scope: ZohoAnalytics.data.all
+  description: Full access to data in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bulk-api.json
+  - openapi/data-api.json
+- scope: ZohoAnalytics.data.create
+  description: Create data in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bulk-api.json
+  - openapi/data-api.json
+- scope: ZohoAnalytics.data.delete
+  description: Delete data from Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bulk-api.json
+  - openapi/data-api.json
+- scope: ZohoAnalytics.data.read
+  description: Read data from Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bulk-api.json
+  - openapi/data-api.json
+- scope: ZohoAnalytics.data.update
+  description: Update data in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bulk-api.json
+  - openapi/data-api.json
+- scope: ZohoAnalytics.embed.all
+  description: Full access to embedded content in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/embed-api.json
+- scope: ZohoAnalytics.embed.create
+  description: Create embedded content in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/embed-api.json
+- scope: ZohoAnalytics.embed.delete
+  description: De;lete embedded content from Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/embed-api.json
+- scope: ZohoAnalytics.embed.read
+  description: Read embedded content from Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/embed-api.json
+- scope: ZohoAnalytics.embed.update
+  description: Update embedded content in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/embed-api.json
+- scope: ZohoAnalytics.fullaccess.all
+  description: Full access to all Zoho Analytics features.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bulk-api.json
+  - openapi/data-api.json
+  - openapi/embed-api.json
+  - openapi/metadata-api.json
+  - openapi/modeling-api.json
+  - openapi/share-api.json
+  - openapi/usermanagement-api.json
+- scope: ZohoAnalytics.metadata.all
+  description: Full access to metadata in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/metadata-api.json
+- scope: ZohoAnalytics.metadata.create
+  description: Create metadata resource in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/metadata-api.json
+- scope: ZohoAnalytics.metadata.delete
+  description: Delete metadata resource from Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/metadata-api.json
+- scope: ZohoAnalytics.metadata.read
+  description: Read metadata resource from Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/metadata-api.json
+- scope: ZohoAnalytics.metadata.update
+  description: Update metadata resource in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/metadata-api.json
+- scope: ZohoAnalytics.modeling.all
+  description: Full access to modeling objects in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modeling-api.json
+- scope: ZohoAnalytics.modeling.create
+  description: Create modeling objects in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modeling-api.json
+- scope: ZohoAnalytics.modeling.delete
+  description: Delete modeling objects in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modeling-api.json
+- scope: ZohoAnalytics.modeling.read
+  sources:
+  - openapi/modeling-api.json
+- scope: ZohoAnalytics.modeling.update
+  description: Update modeling objects in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modeling-api.json
+- scope: ZohoAnalytics.share.all
+  description: Full access to shared items in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/share-api.json
+- scope: ZohoAnalytics.share.create
+  description: Create shared items in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/share-api.json
+- scope: ZohoAnalytics.share.delete
+  description: Delete shared items in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/share-api.json
+- scope: ZohoAnalytics.share.read
+  description: Read shared items in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/share-api.json
+- scope: ZohoAnalytics.share.update
+  description: Update shared items in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/share-api.json
+- scope: ZohoAnalytics.usermanagement.all
+  description: Full access to user management in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/usermanagement-api.json
+- scope: ZohoAnalytics.usermanagement.create
+  description: Create user management data in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/usermanagement-api.json
+- scope: ZohoAnalytics.usermanagement.delete
+  description: Delete user management data in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/usermanagement-api.json
+- scope: ZohoAnalytics.usermanagement.read
+  description: Read user management data in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/usermanagement-api.json
+- scope: ZohoAnalytics.usermanagement.update
+  description: Update user management data in Zoho Analytics.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/usermanagement-api.json
