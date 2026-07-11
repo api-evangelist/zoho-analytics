@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bulk-api.json, openapi/data-api.json, openapi/embed-api.json, openapi/metadata-api.json,
+  openapi/modeling-api.json, openapi/share-api.json, openapi/usermanagement-api.json
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: iam-oauth2-schema
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+    tokenUrl: https://accounts.zoho.com/oauth/v2/token
+    scopes: 6
+  sources:
+  - openapi/bulk-api.json
+  - openapi/data-api.json
+  - openapi/embed-api.json
+  - openapi/metadata-api.json
+  - openapi/modeling-api.json
+  - openapi/share-api.json
+  - openapi/usermanagement-api.json
