@@ -1,0 +1,2579 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/bulk-api.json, openapi/data-api.json, openapi/embed-api.json, openapi/metadata-api.json,
+  openapi/modeling-api.json, openapi/share-api.json, openapi/usermanagement-api.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 161
+  by_action_class:
+    acting: 103
+    connected: 58
+  by_consequence:
+    write: 97
+    read: 58
+    safety-critical: 1
+    physical: 5
+  human_in_the_loop_required: 1
+operations:
+- path: /restapi/v2/workspaces/{workspace-id}/data
+  method: post
+  operationId: importDataNewTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/data
+  method: post
+  operationId: importDataExistingTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/data
+  method: get
+  operationId: exportDataView
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.data.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/data/batch
+  method: post
+  operationId: batchImportNewTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/views/{view-id}/data/batch
+  method: post
+  operationId: batchImportExistingTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/data
+  method: get
+  operationId: createExportJobSQLQuery
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.data.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/data
+  method: post
+  operationId: createImportJobNewTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/views/{view-id}/data
+  method: get
+  operationId: createExportJobViewId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.data.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/views/{view-id}/data
+  method: post
+  operationId: createImportJobExistingTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/importjobs/{job-id}
+  method: get
+  operationId: getImportJobDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.data.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/exportjobs/{job-id}
+  method: get
+  operationId: getExportJobDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.data.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/bulk/workspaces/{workspace-id}/exportjobs/{job-id}/data
+  method: get
+  operationId: downloadExportedData
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.data.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/rows
+  method: post
+  operationId: addRow
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/rows
+  method: put
+  operationId: updateRows
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/rows
+  method: delete
+  operationId: deleteRows
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.data.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish
+  method: get
+  operationId: getViewUrl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.embed.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/embed
+  method: get
+  operationId: getEmbedUrl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.embed.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/privatelink
+  method: get
+  operationId: getPrivateUrl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.embed.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/privatelink
+  method: post
+  operationId: createPrivateUrl
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/privatelink
+  method: delete
+  operationId: removePrivateAccess
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/public
+  method: post
+  operationId: makeViewsPublic
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/public
+  method: delete
+  operationId: removePublicPermission
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/config
+  method: get
+  operationId: getPublishConfigurations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.embed.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/config
+  method: put
+  operationId: updatePublishConfigurations
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/slides
+  method: get
+  operationId: getSlideshows
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.embed.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/slides
+  method: post
+  operationId: createSlideshow
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/slides/{slide-id}
+  method: get
+  operationId: getSlideshowDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.embed.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/slides/{slide-id}
+  method: put
+  operationId: updateSlideshow
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/slides/{slide-id}
+  method: delete
+  operationId: deleteSlideshow
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.embed.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/slides/{slide-id}/publish
+  method: get
+  operationId: getSlideshowUrl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.embed.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/orgs
+  method: get
+  operationId: getOrganizations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces
+  method: get
+  operationId: getAllWorkspaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/owned
+  method: get
+  operationId: getOwnedWorkspaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/shared
+  method: get
+  operationId: getSharedWorkspaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views
+  method: get
+  operationId: getViews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/folders
+  method: get
+  operationId: getFolders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/recentviews
+  method: get
+  operationId: getRecentViews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/trash
+  method: get
+  operationId: getTrashViews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/dashboards
+  method: get
+  operationId: getDashboards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/dashboards/owned
+  method: get
+  operationId: getOwnedDashboards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/dashboards/shared
+  method: get
+  operationId: getSharedDashboards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/secretkey
+  method: get
+  operationId: getWorkspaceSecretKey
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}
+  method: get
+  operationId: getWorkspaceDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/views/{view-id}
+  method: get
+  operationId: getViewDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/querytables/{query-table-id}
+  method: get
+  operationId: getQueryTableDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/metadata
+  method: get
+  operationId: getTableMetadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/dependents
+  method: get
+  operationId: getViewDependents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/dependents
+  method: get
+  operationId: getColumnDependents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/favorite
+  method: post
+  operationId: addFavoriteWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/favorite
+  method: delete
+  operationId: removeFavoriteWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/default
+  method: post
+  operationId: addDefaultWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/default
+  method: delete
+  operationId: removeDefaultWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/favorite
+  method: post
+  operationId: addFavoriteView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/favorite
+  method: delete
+  operationId: removeFavoriteView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/template/data
+  method: get
+  operationId: exportAsTemplate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas
+  method: get
+  operationId: getCustomFormulaList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas
+  method: get
+  operationId: getAggregateFormulaList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/aggregateformulas
+  method: get
+  operationId: getAggregateFormulasInWorkspace
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/aggregateformulas/{formula-id}/dependents
+  method: get
+  operationId: getAggregateFormulaDependents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/aggregateformulas/{formula-id}/value
+  method: get
+  operationId: getAggregateFormulaValue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/metadetails
+  method: get
+  operationId: getMetaDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/emailschedules
+  method: get
+  operationId: getEmailSchedules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/datasources
+  method: get
+  operationId: getDatasources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/importdetails
+  method: get
+  operationId: getLastImportDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/datasource/{datasource-id}/sync
+  method: post
+  operationId: syncDatasource
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/sync
+  method: post
+  operationId: refetchDatasource
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/datasource/{datasource-id}
+  method: put
+  operationId: updateDatasourceConnection
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/wlaccess
+  method: post
+  operationId: enableDomainWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/wlaccess
+  method: delete
+  operationId: disableDomainWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    scope:
+    - ZohoAnalytics.metadata.update
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /restapi/v2/automl/analysis
+  method: get
+  operationId: getAutoMLAnalysisInOrg
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis
+  method: get
+  operationId: getAutoMLAnalysisInWorkspace
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}
+  method: get
+  operationId: getAutoMLAnalysisDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}/deployments
+  method: get
+  operationId: getDeploymentsForModel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.metadata.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces
+  method: post
+  operationId: createWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}
+  method: post
+  operationId: copyWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}
+  method: put
+  operationId: renameWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}
+  method: delete
+  operationId: deleteWorkspace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/tables
+  method: post
+  operationId: createTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/querytables
+  method: post
+  operationId: createQueryTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/querytables/{table-id}
+  method: put
+  operationId: editQueryTable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/reports
+  method: post
+  operationId: createReport
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/reports/{report-id}
+  method: put
+  operationId: updateReport
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/saveas
+  method: post
+  operationId: saveAsView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/movetofolder
+  method: put
+  operationId: moveViewsToFolder
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}
+  method: put
+  operationId: renameView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}
+  method: delete
+  operationId: deleteView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/trash/{view-id}
+  method: post
+  operationId: restoreTrashView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/trash/{view-id}
+  method: delete
+  operationId: deleteTrashView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/folders
+  method: post
+  operationId: createFolder
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/folders/{folder-id}
+  method: put
+  operationId: renameFolder
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/folders/{folder-id}
+  method: delete
+  operationId: deleteFolder
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/folders/{folder-id}/default
+  method: post
+  operationId: makeDefaultFolder
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/folders/{folder-id}/move
+  method: put
+  operationId: changeFolderHierarchy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/folders/{folder-id}/reorder
+  method: put
+  operationId: changeFolderPosition
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/data/sort
+  method: put
+  operationId: sortDataByColumns
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns
+  method: post
+  operationId: addColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}
+  method: put
+  operationId: renameColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}
+  method: delete
+  operationId: deleteColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/lookup
+  method: post
+  operationId: addLookup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/lookup
+  method: delete
+  operationId: removeLookup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/hide
+  method: put
+  operationId: hideColumns
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/show
+  method: put
+  operationId: showColumns
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/reorder
+  method: put
+  operationId: reorderColumns
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{source-workspace-id}/views/copy
+  method: post
+  operationId: copyViews
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/formulas/copy
+  method: post
+  operationId: copyFormulas
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/similarviews
+  method: post
+  operationId: createSimilarViews
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/autoanalyse
+  method: post
+  operationId: autoAnalyseView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/columns/{column-id}/autoanalyse
+  method: post
+  operationId: autoAnalyseColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/variables
+  method: get
+  operationId: getVariables
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.modeling.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/variables
+  method: post
+  operationId: createVariable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/variables/{variable-id}
+  method: get
+  operationId: getVariableDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.modeling.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/variables/{variable-id}
+  method: put
+  operationId: updateVariable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/variables/{variable-id}
+  method: delete
+  operationId: deleteVariable
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas
+  method: post
+  operationId: addFormulaColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas/{formula-id}
+  method: put
+  operationId: editFormulaColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/customformulas/{formula-id}
+  method: delete
+  operationId: deleteFormulaColumn
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas
+  method: post
+  operationId: addAggregateFormula
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas/{formula-id}
+  method: put
+  operationId: editAggregateFormula
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/aggregateformulas/{formula-id}
+  method: delete
+  operationId: deleteAggregateFormula
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules
+  method: post
+  operationId: createEmailSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}
+  method: put
+  operationId: updateEmailSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}
+  method: delete
+  operationId: deleteEmailSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}/trigger
+  method: post
+  operationId: triggerEmailSchedule
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/{view-id}/emailschedules/{schedule-id}/status
+  method: put
+  operationId: changeEmailScheduleStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis
+  method: post
+  operationId: createAutoMLAnalysis
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}/deployments
+  method: post
+  operationId: createAutoMLAnalysisDeployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}/whatif
+  method: post
+  operationId: autoMLWhatIfAnalysis
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/deployments/{deployment-id}/execute
+  method: post
+  operationId: runAutoMLAnalysis
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.create
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/deployments/{deployment-id}
+  method: delete
+  operationId: deleteAutoMLAnalysisModelDeployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}/models/{model-id}
+  method: delete
+  operationId: deleteAutoMLAnalysisModel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/automl/workspaces/{workspace-id}/analysis/{analysis-id}
+  method: delete
+  operationId: deleteAutoMLAnalysis
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.modeling.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/orgadmins
+  method: get
+  operationId: getOrgAdmins
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.share.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/admins
+  method: get
+  operationId: getWorkspaceAdmins
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.share.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/admins
+  method: post
+  operationId: addWorkspaceAdmins
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/admins
+  method: delete
+  operationId: removeWorkspaceAdmins
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/share
+  method: get
+  operationId: getWorkspaceSharedDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.share.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/views/share
+  method: post
+  operationId: shareViews
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/share
+  method: delete
+  operationId: removeShare
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/views/share
+  method: put
+  operationId: UpdateSharedDetailsForView
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /workspaces/{workspace-id}/views/{view-id}/share/mypermissions
+  method: get
+  operationId: getMyPermissions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.share.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /workspaces/{workspace-id}/share/shareddetails
+  method: get
+  operationId: getSharedDetailsForViews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.share.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /workspaces/{workspace-id}/groups
+  method: get
+  operationId: getGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.share.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /workspaces/{workspace-id}/groups
+  method: post
+  operationId: createGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /workspaces/{workspace-id}/groups/{group-id}
+  method: get
+  operationId: getGroupDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.share.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /workspaces/{workspace-id}/groups/{group-id}
+  method: put
+  operationId: renameGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /workspaces/{workspace-id}/groups/{group-id}
+  method: delete
+  operationId: deleteGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /workspaces/{workspace-id}/groups/{group-id}/members
+  method: post
+  operationId: addGroupMembers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /workspaces/{workspace-id}/groups/{group-id}/members
+  method: delete
+  operationId: removeGroupMembers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.share.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/users
+  method: get
+  operationId: getUsers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.usermanagement.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/users
+  method: post
+  operationId: addUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/users
+  method: delete
+  operationId: removeUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/users/active
+  method: put
+  operationId: activateUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/users/inactive
+  method: put
+  operationId: deActivateUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/users/role
+  method: put
+  operationId: changeUserRole
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/subscription
+  method: get
+  operationId: getSubscriptionDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.usermanagement.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/resources
+  method: get
+  operationId: getResourceDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.usermanagement.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/users
+  method: get
+  operationId: getWorkspaceUsers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ZohoAnalytics.usermanagement.read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /restapi/v2/workspaces/{workspace-id}/users
+  method: post
+  operationId: addWorkspaceUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.create
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/users
+  method: delete
+  operationId: deleteWorkspaceUsers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.delete
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/users/status
+  method: put
+  operationId: changeWorkspaceUsersStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /restapi/v2/workspaces/{workspace-id}/users/role
+  method: put
+  operationId: changeWorkspaceUsersRole
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ZohoAnalytics.usermanagement.update
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required

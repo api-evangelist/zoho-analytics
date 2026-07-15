@@ -46,6 +46,8 @@ apis:
   - FN: Zoho Analytics Support
     url: https://www.zoho.com/analytics/help/
 common:
+- type: AgenticAccess
+  url: agentic-access/zoho-analytics-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/zoho-analytics-vulnerability-disclosure.yml
 - type: DomainSecurity
