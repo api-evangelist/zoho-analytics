@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: Zoho Analytics Bulk Bulk Export - Asynchronous Bulk Export - Synchronous API
+  version: v2
+  description: API for Zoho Analytics Bulk Operations, including data import and export.
+servers:
+- url: https://analyticsapi.zoho.com
+security:
+- iam-oauth2-schema:
+  - ZohoAnalytics.data.read
+  - ZohoAnalytics.data.create
+  - ZohoAnalytics.data.update
+  - ZohoAnalytics.data.delete
+  - ZohoAnalytics.data.all
+tags:
+- name: Bulk Export - Synchronous
+  description: Synchronous operations for exporting data.
+paths:
+  /restapi/v2/workspaces/{workspace-id}/views/{view-id}/data:
+    get:
+      tags:
+      - Bulk Export - Synchronous
+      security:
+      - iam-oauth2-schema:
+        - ZohoAnalytics.data.read
+      summary: Export Data from a View (Synchronous)
+      description: "Use Bulk APIs to export data from the specified view synchronously.\n\nNote: Export Data API is restricted for certain resources (given below). For these cases, use the Asynchronous Export APIs instead:\n\n  - Tables having more than one million rows.\n  - Tables and Views from live connect workspaces.\n  - Dashboard and QueryTable view types."
+      operationId: exportDataView
+      parameters:
+      - $ref: '#/components/parameters/org-id'
+      - $ref: '#/components/parameters/workspace-id'
+      - $ref: '#/components/parameters/view-id'
+      - in: query
+        name: CONFIG
+        schema:
+          type: string
+        examples:
+          criteria:
+            summary: Using Filter Criteria
+            value: '{"criteria":"\"SalesTable\".\"Region\"=''East''"}'
+          format:
+            summary: Using Response Format
+            value: '{"responseFormat":"json"}'
+        description: JSONObject with configuration to export data from the specified view. (Refer `ExportConfig` schema). Value must be stringified and URL-encoded.
+      responses:
+        '200':
+          description: Successful export data response. The content type will vary based on `responseFormat` in CONFIG.
+          content:
+            text/csv: {}
+            application/json: {}
+            application/xml: {}
+            application/vnd.ms-excel: {}
+            application/pdf: {}
+            text/html: {}
+            image/png: {}
+            image/jpeg: {}
+        default:
+          $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
+components:
+  parameters:
+    view-id:
+      name: view-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the view.
+    workspace-id:
+      name: workspace-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the workspace.
+    org-id:
+      name: ZANALYTICS-ORGID
+      in: header
+      required: true
+      schema:
+        type: string
+      description: Organization ID (can be obtained using Get Organizations API).
+  securitySchemes:
+    iam-oauth2-schema:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
+          tokenUrl: https://accounts.zoho.com/oauth/v2/token
+          refreshUrl: https://accounts.zoho.com/oauth/v2/token
+          scopes:
+            ZohoAnalytics.data.read: Read data from Zoho Analytics.
+            ZohoAnalytics.data.delete: Delete data from Zoho Analytics.
+            ZohoAnalytics.data.update: Update data in Zoho Analytics.
+            ZohoAnalytics.data.create: Create data in Zoho Analytics.
+            ZohoAnalytics.data.all: Full access to data in Zoho Analytics.
+            ZohoAnalytics.fullaccess.all: Full access to all Zoho Analytics features.
