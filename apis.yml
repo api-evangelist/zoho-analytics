@@ -6,7 +6,20 @@ description: Zoho Analytics is a business intelligence and self-service analytic
   and system integrators to embed powerful reporting and analytical capabilities into
   their applications. It supports OAuth 2.0 authentication, regional endpoints across
   eight data centers, and provides SDKs for Java, C#, Python, PHP, Go, and Node.js.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zoho-analytics.png
 url: https://raw.githubusercontent.com/api-evangelist/zoho-analytics/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -21,30 +34,193 @@ tags:
 - Workspaces
 - Visualizations
 apis:
-- aid: zoho-analytics:zoho-analytics-api
-  name: Zoho Analytics API
-  description: REST API v2 for Zoho Analytics providing programmatic access to workspaces,
-    views, reports, dashboards, bulk data import and export, metadata management,
-    embedding, sharing, and user management operations.
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: zoho-analytics:zoho-analytics-bulk-export-asynchronous-api
+  name: Zoho Analytics Bulk Export - Asynchronous API
+  description: Asynchronous operations for exporting data in bulk.
   humanURL: https://www.zoho.com/analytics/api/
   baseURL: https://analyticsapi.zoho.com/restapi/v2
   tags:
-  - Business Intelligence
-  - Analytics
-  - REST API
+  - Bulk Export - Asynchronous
   properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-bulk-export-asynchronous-api-openapi.yml
   - type: Documentation
     url: https://www.zoho.com/analytics/api/v2/
-  - type: OpenAPI
-    url: https://github.com/zoho/analytics-oas
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - url: graphql/zoho-analytics-graphql.md
-    type: GraphQL
-  contact:
-  - FN: Zoho Analytics Support
-    url: https://www.zoho.com/analytics/help/
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-bulk-export-synchronous-api
+  name: Zoho Analytics Bulk Export - Synchronous API
+  description: Synchronous operations for exporting data.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Bulk Export - Synchronous
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-bulk-export-synchronous-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-bulk-import-asynchronous-api
+  name: Zoho Analytics Bulk Import - Asynchronous API
+  description: Asynchronous operations for importing data in bulk.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Bulk Import - Asynchronous
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-bulk-import-asynchronous-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-bulk-import-batch-api
+  name: Zoho Analytics Bulk Import - Batch API
+  description: Operations for importing large data files in batches.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Bulk Import - Batch
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-bulk-import-batch-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-bulk-import-synchronous-api
+  name: Zoho Analytics Bulk Import - Synchronous API
+  description: Synchronous operations for importing data.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Bulk Import - Synchronous
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-bulk-import-synchronous-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-data-apis-api
+  name: Zoho Analytics Data APIs API
+  description: >-
+    Data APIs are used to perform addition, update, deletion actions on Zoho Analytics tables.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Data APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-data-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-embed-apis-api
+  name: Zoho Analytics Embed APIs API
+  description: >-
+    Embed APIs let you dynamically integrate Zoho Analytics reports and dashboards into your websites
+    and applications.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Embed APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-embed-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-metadata-apis-api
+  name: Zoho Analytics Metadata APIs API
+  description: >-
+    Metadata APIs are used to fetch information about the reporting Workspaces, tables, reports, and dashboards
+    created in Zoho Analytics.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Metadata APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-metadata-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-modeling-apis-api
+  name: Zoho Analytics Modeling APIs API
+  description: >-
+    Modeling APIs manage workspaces, views, columns, and folders, and support copying across or within
+    Zoho Analytics accounts.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Modeling APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-modeling-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-sharing-collaboration-apis-api
+  name: Zoho Analytics Sharing & Collaboration APIs API
+  description: >-
+    APIs for sharing views (reports and dashboards) with users, managing permissions, and removing sharing
+    in Zoho Analytics.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - Sharing & Collaboration APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-sharing-collaboration-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
+- aid: zoho-analytics:zoho-analytics-user-management-apis-api
+  name: Zoho Analytics User Management APIs API
+  description: >-
+    Manage User APIs allow you to add, remove, activate, or deactivate users in your Zoho Analytics organization
+    programmatically.
+  humanURL: https://www.zoho.com/analytics/api/
+  baseURL: https://analyticsapi.zoho.com/restapi/v2
+  tags:
+  - User Management APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/zoho-analytics-user-management-apis-api-openapi.yml
+  - type: Documentation
+    url: https://www.zoho.com/analytics/api/v2/
+  - type: Authentication
+    url: https://www.zoho.com/analytics/api/v2/api-specification.html
+  - type: GraphQL
+    url: graphql/zoho-analytics-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/zoho-analytics-agentic-access.yml
