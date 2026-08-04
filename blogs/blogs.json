@@ -2,16 +2,13 @@
   "repo": "zoho-analytics",
   "feeds": [
     {
-      "source": "https://www.zoho.com/analytics/blog/feed/",
-      "feed_url": "https://www.zoho.com/analytics/blog/feed/",
-      "saved": 0,
-      "error": "no_feed_no_posts"
-    },
-    {
       "source": "https://www.linkedin.com/showcase/zohoanalytics/",
-      "error": "HTTPError"
+      "feed_url": "https://www.linkedin.com/showcase/zohoanalytics/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-07-11T11:50:51Z",
+  "fetched": "2026-08-01T15:49:00Z",
   "post_count": 5
 }

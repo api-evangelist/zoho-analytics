@@ -1,0 +1,34 @@
+{
+  "provider": "zoho-analytics",
+  "sources": [
+    "zoho-analytics-bulk-export-asynchronous-api-openapi.yml",
+    "zoho-analytics-bulk-export-synchronous-api-openapi.yml",
+    "zoho-analytics-bulk-import-asynchronous-api-openapi.yml",
+    "zoho-analytics-bulk-import-batch-api-openapi.yml",
+    "zoho-analytics-bulk-import-synchronous-api-openapi.yml",
+    "zoho-analytics-data-apis-api-openapi.yml",
+    "zoho-analytics-embed-apis-api-openapi.yml",
+    "zoho-analytics-metadata-apis-api-openapi.yml",
+    "zoho-analytics-modeling-apis-api-openapi.yml",
+    "zoho-analytics-sharing-collaboration-apis-api-openapi.yml",
+    "zoho-analytics-user-management-apis-api-openapi.yml"
+  ],
+  "outputs": [
+    "zoho-analytics-bulk-export-asynchronous-api-openapi.yml",
+    "zoho-analytics-bulk-export-synchronous-api-openapi.yml",
+    "zoho-analytics-bulk-import-asynchronous-api-openapi.yml",
+    "zoho-analytics-bulk-import-batch-api-openapi.yml",
+    "zoho-analytics-bulk-import-synchronous-api-openapi.yml",
+    "zoho-analytics-data-apis-api-openapi.yml",
+    "zoho-analytics-embed-apis-api-openapi.yml",
+    "zoho-analytics-metadata-apis-api-openapi.yml",
+    "zoho-analytics-modeling-apis-api-openapi.yml",
+    "zoho-analytics-sharing-collaboration-apis-api-openapi.yml",
+    "zoho-analytics-user-management-apis-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
