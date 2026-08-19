@@ -1,0 +1,295 @@
+{
+  "item": [
+    {
+      "id": "67f95b0f-f19e-4873-8cbf-68b8eb416b46",
+      "name": "Bulk Export - Synchronous",
+      "description": {
+        "content": "Synchronous operations for exporting data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "021fa0d0-583f-41ee-b071-0c101a206c99",
+          "name": "Export Data from a View (Synchronous)",
+          "request": {
+            "name": "Export Data from a View (Synchronous)",
+            "description": {
+              "content": "Use Bulk APIs to export data from the specified view synchronously.\n\nNote: Export Data API is restricted for certain resources (given below). For these cases, use the Asynchronous Export APIs instead:\n\n  - Tables having more than one million rows.\n  - Tables and Views from live connect workspaces.\n  - Dashboard and QueryTable view types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "views",
+                ":view-id",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "CONFIG",
+                  "value": "<string>",
+                  "description": "JSONObject with configuration to export data from the specified view. (Refer `ExportConfig` schema). Value must be stringified and URL-encoded."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "view-id",
+                  "description": "(Required) ID of the view."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "47abcbc1-ef83-410c-863d-f2afe2e69004",
+              "name": "Successful export data response. The content type will vary based on `responseFormat` in CONFIG.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "views",
+                    ":view-id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CONFIG",
+                      "value": "{\"criteria\":\"\\\"SalesTable\\\".\\\"Region\\\"='East'\"}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view-id",
+                      "description": "(Required) ID of the view."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b335f16-6cc7-48e2-97c1-2846f38e6058",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "views",
+                    ":view-id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CONFIG",
+                      "value": "{\"criteria\":\"\\\"SalesTable\\\".\\\"Region\\\"='East'\"}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view-id",
+                      "description": "(Required) ID of the view."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://analyticsapi.zoho.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d5fa405d-cd7e-439d-bd8c-e85d01c1195c",
+    "name": "Zoho Analytics Bulk Bulk Export - Asynchronous Bulk Export - Synchronous API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for Zoho Analytics Bulk Operations, including data import and export.",
+      "type": "text/plain"
+    }
+  }
+}

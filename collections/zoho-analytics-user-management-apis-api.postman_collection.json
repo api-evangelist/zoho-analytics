@@ -1,0 +1,2861 @@
+{
+  "item": [
+    {
+      "id": "676941c1-4b38-4cf7-ab8f-01dd64eb5bb2",
+      "name": "User Management APIs",
+      "description": {
+        "content": "Manage User APIs allow you to add, remove, activate, or deactivate users in your Zoho Analytics organization programmatically.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ca21d47-099e-421e-9cb9-ff72b74b8451",
+          "name": "Get Users",
+          "request": {
+            "name": "Get Users",
+            "description": {
+              "content": "Returns list of users for the specified organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1586cf43-7680-4960-aec6-0cfe0d218663",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"summary\": \"Get users\",\n  \"data\": {\n    \"users\": [\n      {\n        \"emailId\": \"user1@gmail.com\",\n        \"status\": true,\n        \"role\": \"Organization Admin\"\n      },\n      {\n        \"emailId\": \"user2@gmail.com\",\n        \"status\": true,\n        \"role\": \"User\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6516fc8-f395-4b2d-ab6f-50f442c70b74",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3221a44a-fd20-409c-82d3-4f4ab40aeebf",
+          "name": "Add Users",
+          "request": {
+            "name": "Add Users",
+            "description": {
+              "content": "Add users to the specified organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0238163c-364c-46b1-99d5-8c9d68f8f55a",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"<email-id1>\",\"<email-id2>\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "USER"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "854eaba5-d651-4cc9-8eda-b03c191c468e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"<email-id1>\",\"<email-id2>\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "USER"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0714ecc3-7a9f-457f-ab48-098902a9d081",
+          "name": "Remove Users",
+          "request": {
+            "name": "Remove Users",
+            "description": {
+              "content": "Remove users from the specified organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "909935d9-e2c9-4924-854a-c215d192ca9b",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"<email-id1>\",\"<email-id2>\"]"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "247360a4-916e-4e39-be41-cd444e77643a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"<email-id1>\",\"<email-id2>\"]"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d5e6474-38dc-4e31-8b94-cd60494575ae",
+          "name": "Activate Users",
+          "request": {
+            "name": "Activate Users",
+            "description": {
+              "content": "Activate users in the specified organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "users",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<email>\",\"<email>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8665831d-ecc8-4ad4-bc88-68f2f175fe9b",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"tz6@iIznMMuIqWtnMTTucDMcfOvtuRucUQBa.bxx\",\"OiAX8nDvbkW3m8@nIJyps.klbi\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b79c13d-792d-4731-8f5e-7776417fd8ef",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"tz6@iIznMMuIqWtnMTTucDMcfOvtuRucUQBa.bxx\",\"OiAX8nDvbkW3m8@nIJyps.klbi\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37f25c1f-9ca9-40e4-915f-5ea471fc44c5",
+          "name": "Deactivate Users",
+          "request": {
+            "name": "Deactivate Users",
+            "description": {
+              "content": "Deactivate users in the specified organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "users",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<email>\",\"<email>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "53e306f4-1b5f-44f0-b584-c19c74cea298",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"tz6@iIznMMuIqWtnMTTucDMcfOvtuRucUQBa.bxx\",\"OiAX8nDvbkW3m8@nIJyps.klbi\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e3691d3-50c0-4f72-9a22-fb8dfb83321b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"tz6@iIznMMuIqWtnMTTucDMcfOvtuRucUQBa.bxx\",\"OiAX8nDvbkW3m8@nIJyps.klbi\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0430eb5e-d346-4200-853f-c195fdb0b91a",
+          "name": "Change User Role",
+          "request": {
+            "name": "Change User Role",
+            "description": {
+              "content": "Change role for the specified users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "users",
+                "role"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<email>\",\"<email>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0fe29b59-4c72-452a-93bc-bbb4f0d56622",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users",
+                    "role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"aowaPnmuy6KG@vCjgUzgvSaO.img\",\"NB6Zn@MPzZIqLopDSy.wqff\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "USER"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1629975-2ae3-4d2d-bc2c-b1b16d115ddd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "users",
+                    "role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"aowaPnmuy6KG@vCjgUzgvSaO.img\",\"NB6Zn@MPzZIqLopDSy.wqff\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "USER"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eac1365e-749b-4322-8483-d3fa1f162c98",
+          "name": "Get Subscription Details",
+          "request": {
+            "name": "Get Subscription Details",
+            "description": {
+              "content": "Returns subscription details of the specified organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "subscription"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2883e731-aede-408e-b68b-e81d732cd853",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "subscription"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"summary\": \"Get subscription details\",\n  \"data\": {\n    \"subscription\": {\n      \"planName\": \"Premium\",\n      \"addOns\": \"Zoho Recruit Connector,Zoho Books Connector\",\n      \"billingDate\": \" - \",\n      \"trialStatus\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50c10d8f-a61e-4858-b235-cb470b0b53e6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "subscription"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "106acfe6-8836-488c-9cd1-268101536190",
+          "name": "Get Resource Details",
+          "request": {
+            "name": "Get Resource Details",
+            "description": {
+              "content": "Returns resource usage details of the specified organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3ab15191-b5d2-41ec-8934-c0057a25b974",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"summary\": \"Get resource details\",\n  \"data\": {\n    \"resourceDetails\": [\n      {\n        \"resourceName\": \"users\",\n        \"resourceUsage\": {\n          \"allocated\": \"15\",\n          \"used\": \"15\",\n          \"remaining\": \"0\",\n          \"remarks\": \"\"\n        }\n      },\n      {\n        \"resourceName\": \"roUsers\",\n        \"resourceUsage\": {\n          \"allocated\": \"25\",\n          \"used\": \"1\",\n          \"remaining\": \"24\",\n          \"remarks\": \"\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4421f52-9e65-4bdc-8c6a-17e4da16b542",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e41f8ab-e764-4d3c-9ac8-bddd20d0835f",
+          "name": "Get Workspace Users",
+          "request": {
+            "name": "Get Workspace Users",
+            "description": {
+              "content": "Returns list of users for the specified workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e563f492-67aa-467f-a1a0-38d3393f134e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"summary\": \"string\",\n  \"data\": {\n    \"users\": [\n      {\n        \"emailId\": \"string\",\n        \"status\": false,\n        \"role\": \"string\"\n      },\n      {\n        \"emailId\": \"string\",\n        \"status\": false,\n        \"role\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2757bb2f-6a19-4e69-9ba9-68410c988943",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ca76058-7351-4bcc-a717-c76f3a4ae018",
+          "name": "Add Workspace Users",
+          "request": {
+            "name": "Add Workspace Users",
+            "description": {
+              "content": "Add users to the specified workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<email>\",\"<email>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27ecfddc-3071-481b-9e57-4ad527bb9ca1",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"DOh4qZGGpL@WlAwdyXkXadXdnOMXMnN.tr\",\"R5uglstbN-DA@SEkMoJMfRHcvtdjNBqsiTHYLTvQl.my\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f5f98512-f15a-4322-99dd-1612832c3230",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"DOh4qZGGpL@WlAwdyXkXadXdnOMXMnN.tr\",\"R5uglstbN-DA@SEkMoJMfRHcvtdjNBqsiTHYLTvQl.my\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "567cd35d-5e98-4eb4-ace0-6442cf873bc0",
+          "name": "Delete Workspace Users",
+          "request": {
+            "name": "Delete Workspace Users",
+            "description": {
+              "content": "Delete users from the specified workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<email>\",\"<email>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9efdc9ea-3541-44f6-b01a-2e0843772dd6",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"y5wo@UCpQAnHTHqNRrOBOExqPGKXMEWlfdCE.nvr\",\"doT-cbGdO4CJyvK@LUHTmbvo.ph\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d64d5675-d4f0-40dc-a757-23d08f40f17b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"y5wo@UCpQAnHTHqNRrOBOExqPGKXMEWlfdCE.nvr\",\"doT-cbGdO4CJyvK@LUHTmbvo.ph\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80d0dcbe-0b24-4779-ada2-94c7df204eb6",
+          "name": "Change Workspace Users Status",
+          "request": {
+            "name": "Change Workspace Users Status",
+            "description": {
+              "content": "Update activation status of users in a Zoho Analytics workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "users",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<email>\",\"<email>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "operation",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "69a0c576-ac2f-4cad-9a84-da2f723476dd",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"S0dY@FyigKKyIMnTAhITYlgEIBeMMNfg.ty\",\"VY--s8fMdqb@yYXKngFYSHTYE.ew\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "operation",
+                      "value": "deactivate"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12e2c942-04c3-454a-a725-f872daacbc13",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"S0dY@FyigKKyIMnTAhITYlgEIBeMMNfg.ty\",\"VY--s8fMdqb@yYXKngFYSHTYE.ew\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "operation",
+                      "value": "deactivate"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea43e9fa-1a6c-4663-8d95-7d35243961ff",
+          "name": "Change Workspace Users Role",
+          "request": {
+            "name": "Change Workspace Users Role",
+            "description": {
+              "content": "Update role of users in a Zoho Analytics workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "users",
+                "role"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "emailIds",
+                  "value": "[\"<email>\",\"<email>\"]",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "14700310-6a28-434e-b800-7cf6e0493393",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users",
+                    "role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"SRnf8erdXWOf@aJ.izc\",\"EB2YQvCUmG@hCwUuVQMlEXxYrjUAfhmcqHQccvAP.lnj\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "string"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85e2ebc9-ad6f-4332-a233-2b3e652c1a56",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "users",
+                    "role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "emailIds",
+                      "value": "[\"SRnf8erdXWOf@aJ.izc\",\"EB2YQvCUmG@hCwUuVQMlEXxYrjUAfhmcqHQccvAP.lnj\"]"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "string"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "domainName",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://analyticsapi.zoho.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "59bd572a-58b0-4263-a8f3-ea1f0c275fea",
+    "name": "Zoho Analytics Bulk Bulk Export - Asynchronous User Management APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for Zoho Analytics Bulk Operations, including data import and export.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,632 @@
+{
+  "item": [
+    {
+      "id": "7a02878e-f4f5-47da-b4e0-bf23eafa97c9",
+      "name": "Bulk Import - Synchronous",
+      "description": {
+        "content": "Synchronous operations for importing data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c475ab6f-7d81-4bd8-902c-d73ff30be4fb",
+          "name": "Import Data into a New Table (Synchronous)",
+          "request": {
+            "name": "Import Data into a New Table (Synchronous)",
+            "description": {
+              "content": "Use the Bulk APIs to create a new table and import data into it synchronously. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "CONFIG",
+                  "value": "<string>",
+                  "description": "(Required) JSONObject with configuration to create a new table and import data on the same. (Refer `ImportConfigNewTable` schema). Value must be stringified and URL-encoded."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "FILE",
+                  "type": "file",
+                  "description": "The file to be imported. Only one of FILE or DATA should be provided."
+                },
+                {
+                  "key": "DATA",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Raw data (CSV or JSON) to be imported. Only one of FILE or DATA should be provided."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2d42bc24-24f7-4bdf-8abc-61e3d5c09d85",
+              "name": "Successful import data response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CONFIG",
+                      "value": "{\"tableName\":\"Sales\",\"fileType\":\"json\",\"autoIdentify\":true}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The file to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "FILE",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Raw data (CSV or JSON) to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "DATA",
+                      "value": "[{\"Region\":\"East\"},{\"Region\":\"West\"}]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"summary\": \"Import data\",\n  \"data\": {\n    \"viewId\": \"1767024000003153002\",\n    \"importSummary\": {\n      \"importType\": \"APPEND\",\n      \"totalColumnCount\": 7,\n      \"selectedColumnCount\": 7,\n      \"totalRowCount\": 101,\n      \"successRowCount\": 101,\n      \"warnings\": 0,\n      \"importOperation\": \"created\"\n    },\n    \"columnDetails\": {\n      \"Date\": \"Date\",\n      \"Region\": \"Plain Text\",\n      \"Product Category\": \"Plain Text\",\n      \"Product\": \"Plain Text\",\n      \"Customer Name\": \"Plain Text\",\n      \"Sales\": \"Currency\",\n      \"Cost\": \"Currency\"\n    },\n    \"importErrors\": \"\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01398cb0-df4e-457f-ac26-ae53126bdb59",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CONFIG",
+                      "value": "{\"tableName\":\"Sales\",\"fileType\":\"json\",\"autoIdentify\":true}"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The file to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "FILE",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Raw data (CSV or JSON) to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "DATA",
+                      "value": "[{\"Region\":\"East\"},{\"Region\":\"West\"}]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f7143ce-6d56-435d-a7d0-e9b992a3fb82",
+          "name": "Import Data into an Existing Table (Synchronous)",
+          "request": {
+            "name": "Import Data into an Existing Table (Synchronous)",
+            "description": {
+              "content": "Use Bulk APIs to import data into an existing specified table synchronously.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "restapi",
+                "v2",
+                "workspaces",
+                ":workspace-id",
+                "views",
+                ":view-id",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "CONFIG",
+                  "value": "<string>",
+                  "description": "(Required) JSONObject with configuration to create a new table and import data on the same. (Refer `ImportConfigExistingTable` schema). Value must be stringified and URL-encoded."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspace-id",
+                  "description": "(Required) ID of the workspace."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "view-id",
+                  "description": "(Required) ID of the view."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                "key": "ZANALYTICS-ORGID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "FILE",
+                  "type": "file",
+                  "description": "The file to be imported. Only one of FILE or DATA should be provided."
+                },
+                {
+                  "key": "DATA",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Raw data (CSV or JSON) to be imported. Only one of FILE or DATA should be provided."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1ac2663a-2437-45ca-889f-6d236a07b439",
+              "name": "Successful import data response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "views",
+                    ":view-id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CONFIG",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view-id",
+                      "description": "(Required) ID of the view."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The file to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "FILE",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "Raw data (CSV or JSON) to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "DATA",
+                      "value": "[{\"Region\":\"East\"},{\"Region\":\"West\"}]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"summary\": \"Import data\",\n  \"data\": {\n    \"viewId\": \"1767024000003153002\",\n    \"importSummary\": {\n      \"importType\": \"APPEND\",\n      \"totalColumnCount\": 7,\n      \"selectedColumnCount\": 7,\n      \"totalRowCount\": 101,\n      \"successRowCount\": 101,\n      \"warnings\": 0,\n      \"importOperation\": \"updated\"\n    },\n    \"columnDetails\": {\n      \"Date\": \"Date\",\n      \"Region\": \"Plain Text\",\n      \"Product Category\": \"Plain Text\",\n      \"Product\": \"Plain Text\",\n      \"Customer Name\": \"Plain Text\",\n      \"Sales\": \"Currency\",\n      \"Cost\": \"Currency\"\n    },\n    \"importErrors\": \"\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c75ae9c-4943-4221-b103-6fb5a5939c9b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "restapi",
+                    "v2",
+                    "workspaces",
+                    ":workspace-id",
+                    "views",
+                    ":view-id",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CONFIG",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspace-id",
+                      "description": "(Required) ID of the workspace."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view-id",
+                      "description": "(Required) ID of the view."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Organization ID (can be obtained using Get Organizations API).",
+                    "key": "ZANALYTICS-ORGID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The file to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "FILE",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "Raw data (CSV or JSON) to be imported. Only one of FILE or DATA should be provided.",
+                        "type": "text/plain"
+                      },
+                      "key": "DATA",
+                      "value": "[{\"Region\":\"East\"},{\"Region\":\"West\"}]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://analyticsapi.zoho.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ZohoAnalytics.data.read ZohoAnalytics.data.delete ZohoAnalytics.data.update ZohoAnalytics.data.create ZohoAnalytics.data.all ZohoAnalytics.fullaccess.all"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.zoho.com/oauth/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7f2d1d57-f18d-4c73-b8a6-e47b0d34f2d3",
+    "name": "Zoho Analytics Bulk Bulk Export - Asynchronous Bulk Import - Synchronous API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for Zoho Analytics Bulk Operations, including data import and export.",
+      "type": "text/plain"
+    }
+  }
+}
