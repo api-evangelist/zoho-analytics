@@ -6,6 +6,18 @@ description: Zoho Analytics is a business intelligence and self-service analytic
   and system integrators to embed powerful reporting and analytical capabilities into
   their applications. It supports OAuth 2.0 authentication, regional endpoints across
   eight data centers, and provides SDKs for Java, C#, Python, PHP, Go, and Node.js.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
