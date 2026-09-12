@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Zoho Analytics Bulk Bulk Export - Asynchronous API
   version: v2
@@ -161,6 +161,13 @@ paths:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
   parameters:
+    org-id:
+      name: ZANALYTICS-ORGID
+      in: header
+      required: true
+      schema:
+        type: string
+      description: Organization ID (can be obtained using Get Organizations API).
     view-id:
       name: view-id
       in: path
@@ -182,14 +189,22 @@ components:
       required: true
       schema:
         type: string
-    org-id:
-      name: ZANALYTICS-ORGID
-      in: header
-      required: true
-      schema:
-        type: string
-      description: Organization ID (can be obtained using Get Organizations API).
   schemas:
+    ExportJobCreationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+        summary:
+          type: string
+        data:
+          type: object
+          properties:
+            jobId:
+              type: string
+              description: The unique ID of the export job.
     ExportJobDetailsResponse:
       type: object
       description: Response for checking the status of an export job.
@@ -232,21 +247,6 @@ components:
             expiryTime:
               type: string
               description: Epoch timestamp indicating when the download URL will expire (in milliseconds).
-    ExportJobCreationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-        summary:
-          type: string
-        data:
-          type: object
-          properties:
-            jobId:
-              type: string
-              description: The unique ID of the export job.
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2

@@ -29,6 +29,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "zoho-analytics-bulk-export-asynchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-bulk-export-synchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-bulk-import-asynchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-bulk-import-batch-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-bulk-import-synchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-data-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-embed-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-metadata-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-modeling-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-sharing-collaboration-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zoho-analytics-user-management-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

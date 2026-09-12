@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Zoho Analytics Bulk Bulk Export - Asynchronous Bulk Export - Synchronous API
   version: v2
@@ -58,13 +58,6 @@ paths:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
   parameters:
-    view-id:
-      name: view-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the view.
     workspace-id:
       name: workspace-id
       in: path
@@ -79,6 +72,13 @@ components:
       schema:
         type: string
       description: Organization ID (can be obtained using Get Organizations API).
+    view-id:
+      name: view-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the view.
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2
