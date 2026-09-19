@@ -43,6 +43,15 @@ tags:
 - Reports
 - Data Import
 - Data Export
+- Workspace
+- Visualization
+tags_raw:
+- Business Intelligence
+- Analytics
+- Dashboards
+- Reports
+- Data Import
+- Data Export
 - Workspaces
 - Visualizations
 apis:
@@ -133,6 +142,8 @@ apis:
   humanURL: https://www.zoho.com/analytics/api/
   baseURL: https://analyticsapi.zoho.com/restapi/v2
   tags:
+  - Data API
+  tags_raw:
   - Data APIs
   properties:
   - type: OpenAPI
