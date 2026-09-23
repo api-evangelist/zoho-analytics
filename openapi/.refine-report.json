@@ -1,17 +1,13 @@
 {
   "provider": "zoho-analytics",
   "sources": [
-    "zoho-analytics-bulk-export-asynchronous-api-openapi.yml",
-    "zoho-analytics-bulk-export-synchronous-api-openapi.yml",
-    "zoho-analytics-bulk-import-asynchronous-api-openapi.yml",
-    "zoho-analytics-bulk-import-batch-api-openapi.yml",
-    "zoho-analytics-bulk-import-synchronous-api-openapi.yml",
-    "zoho-analytics-data-apis-api-openapi.yml",
-    "zoho-analytics-embed-apis-api-openapi.yml",
-    "zoho-analytics-metadata-apis-api-openapi.yml",
-    "zoho-analytics-modeling-apis-api-openapi.yml",
-    "zoho-analytics-sharing-collaboration-apis-api-openapi.yml",
-    "zoho-analytics-user-management-apis-api-openapi.yml"
+    "_original/bulk-api.json",
+    "_original/data-api.json",
+    "_original/embed-api.json",
+    "_original/metadata-api.json",
+    "_original/modeling-api.json",
+    "_original/share-api.json",
+    "_original/usermanagement-api.json"
   ],
   "outputs": [
     "zoho-analytics-bulk-export-asynchronous-api-openapi.yml",
@@ -30,18 +26,27 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "zoho-analytics-bulk-export-asynchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-bulk-export-synchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-bulk-import-asynchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-bulk-import-batch-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-bulk-import-synchronous-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-data-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-embed-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-metadata-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-modeling-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-sharing-collaboration-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "zoho-analytics-user-management-apis-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (7 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bulk-api.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "data-api.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "embed-api.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "metadata-api.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "modeling-api.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "share-api.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "usermanagement-api.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "zoho-analytics-bulk-export-asynchronous-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-bulk-export-synchronous-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-bulk-import-asynchronous-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-bulk-import-batch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-bulk-import-synchronous-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-data-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-embed-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-metadata-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-modeling-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-sharing-collaboration-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zoho-analytics-user-management-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Zoho Analytics Bulk Bulk Export - Asynchronous Bulk Export - Synchronous API
+  title: Zoho Analytics Bulk Bulk Export - Synchronous API
   version: v2
   description: API for Zoho Analytics Bulk Operations, including data import and export.
 servers:
@@ -24,7 +24,17 @@ paths:
       - iam-oauth2-schema:
         - ZohoAnalytics.data.read
       summary: Export Data from a View (Synchronous)
-      description: "Use Bulk APIs to export data from the specified view synchronously.\n\nNote: Export Data API is restricted for certain resources (given below). For these cases, use the Asynchronous Export APIs instead:\n\n  - Tables having more than one million rows.\n  - Tables and Views from live connect workspaces.\n  - Dashboard and QueryTable view types."
+      description: 'Use Bulk APIs to export data from the specified view synchronously.
+
+
+        Note: Export Data API is restricted for certain resources (given below). For these cases, use the Asynchronous Export APIs instead:
+
+
+        - Tables having more than one million rows.
+
+        - Tables and Views from live connect workspaces.
+
+        - Dashboard and QueryTable view types.'
       operationId: exportDataView
       parameters:
       - $ref: '#/components/parameters/org-id'
@@ -58,13 +68,6 @@ paths:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
   parameters:
-    workspace-id:
-      name: workspace-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the workspace.
     org-id:
       name: ZANALYTICS-ORGID
       in: header
@@ -79,6 +82,13 @@ components:
       schema:
         type: string
       description: ID of the view.
+    workspace-id:
+      name: workspace-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the workspace.
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2

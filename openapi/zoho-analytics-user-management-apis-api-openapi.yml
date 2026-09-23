@@ -1,17 +1,10 @@
 openapi: 3.2.0
 info:
-  title: Zoho Analytics Bulk Bulk Export - Asynchronous User Management APIs API
+  title: Zoho Analytics User Management APIs API
   version: v2
-  description: API for Zoho Analytics Bulk Operations, including data import and export.
+  description: API for managing data in Zoho Analytics workspaces and views.
 servers:
 - url: https://analyticsapi.zoho.com
-security:
-- iam-oauth2-schema:
-  - ZohoAnalytics.data.read
-  - ZohoAnalytics.data.create
-  - ZohoAnalytics.data.update
-  - ZohoAnalytics.data.delete
-  - ZohoAnalytics.data.all
 tags:
 - name: User Management APIs
   description: Manage User APIs allow you to add, remove, activate, or deactivate users in your Zoho Analytics organization programmatically.
@@ -377,55 +370,6 @@ paths:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
   schemas:
-    ChangeWorkspaceUsersRoleConfig:
-      type: object
-      properties:
-        emailIds:
-          type: array
-          items:
-            type: string
-            format: email
-        domainName:
-          type: string
-          description: Domain of users whose role is being changed
-        role:
-          type: string
-          description: New role to assign (USER, WORKSPACEADMIN, or custom)
-      required:
-      - emailIds
-      - role
-    GetUsersResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        summary:
-          type: string
-        data:
-          type: object
-          properties:
-            users:
-              type: array
-              items:
-                type: object
-                properties:
-                  emailId:
-                    type: string
-                  status:
-                    type: boolean
-                  role:
-                    type: string
-      examples:
-      - status: success
-        summary: Get users
-        data:
-          users:
-          - emailId: user1@gmail.com
-            status: true
-            role: Organization Admin
-          - emailId: user2@gmail.com
-            status: true
-            role: User
     GetWorkspaceUsersResponse:
       type: object
       properties:
@@ -471,22 +415,6 @@ components:
           - emailId: user2@zoho.com
             status: true
             role: Workspace Admin
-    DeactivateUsersConfig:
-      type: object
-      properties:
-        emailIds:
-          type: array
-          items:
-            type: string
-            format: email
-        domainName:
-          type: string
-      required:
-      - emailIds
-      examples:
-      - emailIds:
-        - emailId1
-        - emailId2
     AddWorkspaceUsersConfig:
       type: object
       properties:
@@ -503,7 +431,7 @@ components:
           description: Role to assign (USER, WORKSPACEADMIN or custom role)
       required:
       - emailIds
-    ChangeWorkspaceUsersStatusConfig:
+    ActivateUsersConfig:
       type: object
       properties:
         emailIds:
@@ -513,16 +441,49 @@ components:
             format: email
         domainName:
           type: string
-          description: Domain to update user status in
-        operation:
-          type: string
-          enum:
-          - activate
-          - deactivate
-          description: The status operation to perform
       required:
       - emailIds
-      - operation
+      examples:
+      - emailIds:
+        - emailId1
+        - emailId2
+    ChangeUserRoleConfig:
+      type: object
+      properties:
+        emailIds:
+          type: array
+          items:
+            type: string
+            format: email
+        role:
+          type: string
+          enum:
+          - USER
+          - VIEWER
+          - ORGADMIN
+        domainName:
+          type: string
+      required:
+      - emailIds
+      - role
+      examples:
+      - emailIds:
+        - emailId1
+        - emailId2
+        role: USER
+    DeleteWorkspaceUsersConfig:
+      type: object
+      properties:
+        emailIds:
+          type: array
+          items:
+            type: string
+            format: email
+        domainName:
+          type: string
+          description: Domain name to remove users from
+      required:
+      - emailIds
     GetResourceDetailsResponse:
       type: object
       properties:
@@ -587,22 +548,6 @@ components:
         - <email-id1>
         - <email-id2>
         role: USER
-    ActivateUsersConfig:
-      type: object
-      properties:
-        emailIds:
-          type: array
-          items:
-            type: string
-            format: email
-        domainName:
-          type: string
-      required:
-      - emailIds
-      examples:
-      - emailIds:
-        - emailId1
-        - emailId2
     RemoveUsersConfig:
       type: object
       properties:
@@ -618,7 +563,7 @@ components:
       - emailIds:
         - <email-id1>
         - <email-id2>
-    ChangeUserRoleConfig:
+    DeactivateUsersConfig:
       type: object
       properties:
         emailIds:
@@ -626,23 +571,47 @@ components:
           items:
             type: string
             format: email
-        role:
-          type: string
-          enum:
-          - USER
-          - VIEWER
-          - ORGADMIN
         domainName:
           type: string
       required:
       - emailIds
-      - role
       examples:
       - emailIds:
         - emailId1
         - emailId2
-        role: USER
-    DeleteWorkspaceUsersConfig:
+    GetUsersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        summary:
+          type: string
+        data:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                type: object
+                properties:
+                  emailId:
+                    type: string
+                  status:
+                    type: boolean
+                  role:
+                    type: string
+      examples:
+      - status: success
+        summary: Get users
+        data:
+          users:
+          - emailId: user1@gmail.com
+            status: true
+            role: Organization Admin
+          - emailId: user2@gmail.com
+            status: true
+            role: User
+    ChangeWorkspaceUsersStatusConfig:
       type: object
       properties:
         emailIds:
@@ -652,9 +621,16 @@ components:
             format: email
         domainName:
           type: string
-          description: Domain name to remove users from
+          description: Domain to update user status in
+        operation:
+          type: string
+          enum:
+          - activate
+          - deactivate
+          description: The status operation to perform
       required:
       - emailIds
+      - operation
     GetSubscriptionDetailsResponse:
       type: object
       properties:
@@ -685,6 +661,23 @@ components:
             addOns: Zoho Recruit Connector,Zoho Books Connector
             billingDate: ' - '
             trialStatus: false
+    ChangeWorkspaceUsersRoleConfig:
+      type: object
+      properties:
+        emailIds:
+          type: array
+          items:
+            type: string
+            format: email
+        domainName:
+          type: string
+          description: Domain of users whose role is being changed
+        role:
+          type: string
+          description: New role to assign (USER, WORKSPACEADMIN, or custom)
+      required:
+      - emailIds
+      - role
   parameters:
     org-id:
       name: ZANALYTICS-ORGID
@@ -709,9 +702,9 @@ components:
           tokenUrl: https://accounts.zoho.com/oauth/v2/token
           refreshUrl: https://accounts.zoho.com/oauth/v2/token
           scopes:
-            ZohoAnalytics.data.read: Read data from Zoho Analytics.
-            ZohoAnalytics.data.delete: Delete data from Zoho Analytics.
-            ZohoAnalytics.data.update: Update data in Zoho Analytics.
-            ZohoAnalytics.data.create: Create data in Zoho Analytics.
-            ZohoAnalytics.data.all: Full access to data in Zoho Analytics.
+            ZohoAnalytics.usermanagement.read: Read user management data in Zoho Analytics.
+            ZohoAnalytics.usermanagement.delete: Delete user management data in Zoho Analytics.
+            ZohoAnalytics.usermanagement.update: Update user management data in Zoho Analytics.
+            ZohoAnalytics.usermanagement.create: Create user management data in Zoho Analytics.
+            ZohoAnalytics.usermanagement.all: Full access to user management in Zoho Analytics.
             ZohoAnalytics.fullaccess.all: Full access to all Zoho Analytics features.

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Zoho Analytics Bulk Bulk Export - Asynchronous Bulk Import - Synchronous API
+  title: Zoho Analytics Bulk Bulk Import - Synchronous API
   version: v2
   description: API for Zoho Analytics Bulk Operations, including data import and export.
 servers:
@@ -24,7 +24,7 @@ paths:
       - iam-oauth2-schema:
         - ZohoAnalytics.data.create
       summary: Import Data into a New Table (Synchronous)
-      description: 'Use the Bulk APIs to create a new table and import data into it synchronously. '
+      description: Use the Bulk APIs to create a new table and import data into it synchronously.
       operationId: importDataNewTable
       parameters:
       - $ref: '#/components/parameters/org-id'
@@ -184,42 +184,29 @@ paths:
         default:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
+  parameters:
+    org-id:
+      name: ZANALYTICS-ORGID
+      in: header
+      required: true
+      schema:
+        type: string
+      description: Organization ID (can be obtained using Get Organizations API).
+    workspace-id:
+      name: workspace-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the workspace.
+    view-id:
+      name: view-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the view.
   schemas:
-    ExistImportSuccessResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-        summary:
-          type: string
-        data:
-          type: object
-          properties:
-            importSummary:
-              type: object
-              properties:
-                importType:
-                  type: string
-                totalColumnCount:
-                  type: integer
-                selectedColumnCount:
-                  type: integer
-                totalRowCount:
-                  type: integer
-                successRowCount:
-                  type: integer
-                warnings:
-                  type: integer
-                importOperation:
-                  type: string
-            columnDetails:
-              type: object
-              additionalProperties:
-                type: string
-            importErrors:
-              type: string
     ImportSuccessResponse:
       type: object
       properties:
@@ -257,28 +244,41 @@ components:
                 type: string
             importErrors:
               type: string
-  parameters:
-    org-id:
-      name: ZANALYTICS-ORGID
-      in: header
-      required: true
-      schema:
-        type: string
-      description: Organization ID (can be obtained using Get Organizations API).
-    view-id:
-      name: view-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the view.
-    workspace-id:
-      name: workspace-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the workspace.
+    ExistImportSuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+        summary:
+          type: string
+        data:
+          type: object
+          properties:
+            importSummary:
+              type: object
+              properties:
+                importType:
+                  type: string
+                totalColumnCount:
+                  type: integer
+                selectedColumnCount:
+                  type: integer
+                totalRowCount:
+                  type: integer
+                successRowCount:
+                  type: integer
+                warnings:
+                  type: integer
+                importOperation:
+                  type: string
+            columnDetails:
+              type: object
+              additionalProperties:
+                type: string
+            importErrors:
+              type: string
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2
