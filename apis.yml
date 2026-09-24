@@ -69,8 +69,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-bulk-export-synchronous-api
   name: Zoho Analytics Bulk Export - Synchronous API
   description: Synchronous operations for exporting data.
@@ -85,8 +83,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-bulk-import-asynchronous-api
   name: Zoho Analytics Bulk Import - Asynchronous API
   description: Asynchronous operations for importing data in bulk.
@@ -101,8 +97,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-bulk-import-batch-api
   name: Zoho Analytics Bulk Import - Batch API
   description: Operations for importing large data files in batches.
@@ -117,8 +111,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-bulk-import-synchronous-api
   name: Zoho Analytics Bulk Import - Synchronous API
   description: Synchronous operations for importing data.
@@ -133,8 +125,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-data-apis-api
   name: Zoho Analytics Data APIs API
   description: >-
@@ -152,8 +142,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-embed-apis-api
   name: Zoho Analytics Embed APIs API
   description: >-
@@ -170,8 +158,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-metadata-apis-api
   name: Zoho Analytics Metadata APIs API
   description: >-
@@ -188,8 +174,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-modeling-apis-api
   name: Zoho Analytics Modeling APIs API
   description: >-
@@ -206,8 +190,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-sharing-collaboration-apis-api
   name: Zoho Analytics Sharing & Collaboration APIs API
   description: >-
@@ -224,8 +206,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 - aid: zoho-analytics:zoho-analytics-user-management-apis-api
   name: Zoho Analytics User Management APIs API
   description: >-
@@ -242,8 +222,6 @@ apis:
     url: https://www.zoho.com/analytics/api/v2/
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
-  - type: GraphQL
-    url: graphql/zoho-analytics-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/zoho-analytics-agentic-access.yml
