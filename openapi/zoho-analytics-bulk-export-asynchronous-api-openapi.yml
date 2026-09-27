@@ -277,13 +277,6 @@ components:
       schema:
         type: string
       description: Organization ID (can be obtained using Get Organizations API).
-    workspace-id:
-      name: workspace-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the workspace.
     view-id:
       name: view-id
       in: path
@@ -291,22 +284,14 @@ components:
       schema:
         type: string
       description: ID of the view.
+    workspace-id:
+      name: workspace-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the workspace.
   schemas:
-    ExportJobCreationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-        summary:
-          type: string
-        data:
-          type: object
-          properties:
-            jobId:
-              type: string
-              description: The unique ID of the export job.
     ExportJobDetailsResponse:
       type: object
       description: Response for checking the status of an export job.
@@ -349,6 +334,21 @@ components:
             expiryTime:
               type: string
               description: Epoch timestamp indicating when the download URL will expire (in milliseconds).
+    ExportJobCreationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+        summary:
+          type: string
+        data:
+          type: object
+          properties:
+            jobId:
+              type: string
+              description: The unique ID of the export job.
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2

@@ -370,6 +370,38 @@ paths:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
   schemas:
+    GetUsersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        summary:
+          type: string
+        data:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                type: object
+                properties:
+                  emailId:
+                    type: string
+                  status:
+                    type: boolean
+                  role:
+                    type: string
+      examples:
+      - status: success
+        summary: Get users
+        data:
+          users:
+          - emailId: user1@gmail.com
+            status: true
+            role: Organization Admin
+          - emailId: user2@gmail.com
+            status: true
+            role: User
     GetWorkspaceUsersResponse:
       type: object
       properties:
@@ -415,7 +447,7 @@ components:
           - emailId: user2@zoho.com
             status: true
             role: Workspace Admin
-    AddWorkspaceUsersConfig:
+    DeleteWorkspaceUsersConfig:
       type: object
       properties:
         emailIds:
@@ -425,12 +457,57 @@ components:
             format: email
         domainName:
           type: string
-          description: Name of the domain to which users are added
-        role:
-          type: string
-          description: Role to assign (USER, WORKSPACEADMIN or custom role)
+          description: Domain name to remove users from
       required:
       - emailIds
+    ChangeWorkspaceUsersRoleConfig:
+      type: object
+      properties:
+        emailIds:
+          type: array
+          items:
+            type: string
+            format: email
+        domainName:
+          type: string
+          description: Domain of users whose role is being changed
+        role:
+          type: string
+          description: New role to assign (USER, WORKSPACEADMIN, or custom)
+      required:
+      - emailIds
+      - role
+    RemoveUsersConfig:
+      type: object
+      properties:
+        emailIds:
+          type: array
+          items:
+            type: string
+        domainName:
+          type: string
+      required:
+      - emailIds
+      examples:
+      - emailIds:
+        - <email-id1>
+        - <email-id2>
+    DeactivateUsersConfig:
+      type: object
+      properties:
+        emailIds:
+          type: array
+          items:
+            type: string
+            format: email
+        domainName:
+          type: string
+      required:
+      - emailIds
+      examples:
+      - emailIds:
+        - emailId1
+        - emailId2
     ActivateUsersConfig:
       type: object
       properties:
@@ -447,7 +524,7 @@ components:
       - emailIds:
         - emailId1
         - emailId2
-    ChangeUserRoleConfig:
+    AddWorkspaceUsersConfig:
       type: object
       properties:
         emailIds:
@@ -455,23 +532,15 @@ components:
           items:
             type: string
             format: email
+        domainName:
+          type: string
+          description: Name of the domain to which users are added
         role:
           type: string
-          enum:
-          - USER
-          - VIEWER
-          - ORGADMIN
-        domainName:
-          type: string
+          description: Role to assign (USER, WORKSPACEADMIN or custom role)
       required:
       - emailIds
-      - role
-      examples:
-      - emailIds:
-        - emailId1
-        - emailId2
-        role: USER
-    DeleteWorkspaceUsersConfig:
+    ChangeWorkspaceUsersStatusConfig:
       type: object
       properties:
         emailIds:
@@ -481,9 +550,16 @@ components:
             format: email
         domainName:
           type: string
-          description: Domain name to remove users from
+          description: Domain to update user status in
+        operation:
+          type: string
+          enum:
+          - activate
+          - deactivate
+          description: The status operation to perform
       required:
       - emailIds
+      - operation
     GetResourceDetailsResponse:
       type: object
       properties:
@@ -548,89 +624,6 @@ components:
         - <email-id1>
         - <email-id2>
         role: USER
-    RemoveUsersConfig:
-      type: object
-      properties:
-        emailIds:
-          type: array
-          items:
-            type: string
-        domainName:
-          type: string
-      required:
-      - emailIds
-      examples:
-      - emailIds:
-        - <email-id1>
-        - <email-id2>
-    DeactivateUsersConfig:
-      type: object
-      properties:
-        emailIds:
-          type: array
-          items:
-            type: string
-            format: email
-        domainName:
-          type: string
-      required:
-      - emailIds
-      examples:
-      - emailIds:
-        - emailId1
-        - emailId2
-    GetUsersResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        summary:
-          type: string
-        data:
-          type: object
-          properties:
-            users:
-              type: array
-              items:
-                type: object
-                properties:
-                  emailId:
-                    type: string
-                  status:
-                    type: boolean
-                  role:
-                    type: string
-      examples:
-      - status: success
-        summary: Get users
-        data:
-          users:
-          - emailId: user1@gmail.com
-            status: true
-            role: Organization Admin
-          - emailId: user2@gmail.com
-            status: true
-            role: User
-    ChangeWorkspaceUsersStatusConfig:
-      type: object
-      properties:
-        emailIds:
-          type: array
-          items:
-            type: string
-            format: email
-        domainName:
-          type: string
-          description: Domain to update user status in
-        operation:
-          type: string
-          enum:
-          - activate
-          - deactivate
-          description: The status operation to perform
-      required:
-      - emailIds
-      - operation
     GetSubscriptionDetailsResponse:
       type: object
       properties:
@@ -661,7 +654,7 @@ components:
             addOns: Zoho Recruit Connector,Zoho Books Connector
             billingDate: ' - '
             trialStatus: false
-    ChangeWorkspaceUsersRoleConfig:
+    ChangeUserRoleConfig:
       type: object
       properties:
         emailIds:
@@ -669,15 +662,22 @@ components:
           items:
             type: string
             format: email
-        domainName:
-          type: string
-          description: Domain of users whose role is being changed
         role:
           type: string
-          description: New role to assign (USER, WORKSPACEADMIN, or custom)
+          enum:
+          - USER
+          - VIEWER
+          - ORGADMIN
+        domainName:
+          type: string
       required:
       - emailIds
       - role
+      examples:
+      - emailIds:
+        - emailId1
+        - emailId2
+        role: USER
   parameters:
     org-id:
       name: ZANALYTICS-ORGID
