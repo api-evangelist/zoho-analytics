@@ -410,26 +410,54 @@ paths:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
   schemas:
-    CreateSlideshowResponse:
+    GetSlideshowUrlResponse:
       type: object
       properties:
         status:
           type: string
+          enum:
+          - success
         summary:
           type: string
         data:
           type: object
           properties:
-            slideId:
-              type: string
             slideUrl:
               type: string
+              format: uri
+          required:
+          - slideUrl
       examples:
-      - status: success
-        summary: Create slideshow
-        data:
-          slideId: '1767024000003151001'
-          slideUrl: https://analyticsapi.zoho.com/ZDBSlideshow.cc?SLIDEID=1767024000003151001&SLIDEKEY=69ba2ec9bfbe548f494bdf798087db41&AUTOPLAY=true&INTERVAL=25&INCLUDETITLE=true&INCLUDEDESC=true&SOCIALWIDGETS=false
+      - success:
+          value:
+            status: success
+            summary: Get slideshow url
+            data:
+              slideUrl: https://analyticsapi.zoho.com/ZDBSlideshow.cc?SLIDEID=1767024000003139001&SLIDEKEY=9c4a1042011ce02fc4a3182fa75a22a9&AUTOPLAY=true&INTERVAL=25&INCLUDETITLE=true&INCLUDEDESC=true&SOCIALWIDGETS=false
+    CreateSlideshowConfig:
+      type: object
+      properties:
+        slideName:
+          type: string
+          description: Name of the slideshow.
+        viewIds:
+          type: array
+          items:
+            type: string
+          description: View ids to be included in the slideshow.
+        accessType:
+          type: integer
+          description: 'Access type of the slideshow. 0: With Login, 1: Without login, 2: Sort'
+          default: 0
+      required:
+      - slideName
+      - viewIds
+      examples:
+      - slideName: Sales Overview
+        viewIds:
+        - '1767024000003013087'
+        - '1767024000003015001'
+        accessType: 0
     GetSlideshowsResponse:
       type: object
       properties:
@@ -495,77 +523,6 @@ components:
         - '1767024000003013087'
         regenerateSlideKey: true
         accessType: 1
-    CreatePrivateUrlConfig:
-      type: object
-      properties:
-        criteria:
-          type: string
-        permissions:
-          type: object
-          properties:
-            vud:
-              type: boolean
-            export:
-              type: boolean
-            drillDown:
-              type: boolean
-            insight:
-              type: boolean
-        regenerateKey:
-          type: boolean
-        vudColumns:
-          type: array
-          items:
-            type: object
-            properties:
-              tableName:
-                type: string
-              columnNames:
-                type: array
-                items:
-                  type: string
-        drillColumns:
-          type: array
-          items:
-            type: object
-            properties:
-              tableName:
-                type: string
-              columnNames:
-                type: array
-                items:
-                  type: string
-        includeAllColsForVUD:
-          type: boolean
-        password:
-          type: string
-        removePassword:
-          type: boolean
-        expiryDate:
-          type: string
-        removeExpiryDate:
-          type: boolean
-      examples:
-      - criteria: '"SalesTable"."Region"=''East'''
-        permissions:
-          vud: true
-          export: true
-        regenerateKey: false
-        vudColumns:
-        - tableName: table1
-          columnNames:
-          - column1
-          - column2
-        drillColumns:
-        - tableName: table1
-          columnNames:
-          - column1
-          - column2
-        includeAllColsForVUD: false
-        password: zylker123
-        removePassword: false
-        expiryDate: '2025-12-31'
-        removeExpiryDate: false
     GetSlideshowDetailsResponse:
       type: object
       properties:
@@ -614,30 +571,6 @@ components:
                 - '1767024000003013087'
                 - '1767024000003015001'
                 - '1767024000003011002'
-    GetPrivateUrlConfig:
-      type: object
-      properties:
-        domainName:
-          type: string
-          description: Provide the custom domain to obtain the private URL with the corresponding domain address.
-      required: []
-    GetViewUrlResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        summary:
-          type: string
-        data:
-          type: object
-          properties:
-            viewUrl:
-              type: string
-      examples:
-      - status: success
-        summary: Get view url
-        data:
-          viewUrl: https://analyticsapi.zoho.com/open-view/1767024000003145011?ZDB_THEME_NAME=blue
     UpdatePublishConfigurationsConfig:
       type: object
       properties:
@@ -683,6 +616,23 @@ components:
       - includeTitle: true
         includeDesc: true
         includeToolBar: false
+    MakeViewsPublicResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        summary:
+          type: string
+        data:
+          type: object
+          properties:
+            publicUrl:
+              type: string
+      examples:
+      - status: success
+        summary: Make view public
+        data:
+          publicUrl: https://analytics.zoho.com/open-view/1767024000008125004
     GetPublishConfigurationsResponse:
       type: object
       properties:
@@ -798,30 +748,23 @@ components:
         summary: Get embed url
         data:
           embedUrl: https://analyticsapi.zoho.com/open-view/1767024000003145011?OS=FS&RSCONFIG=******
-    GetSlideshowUrlResponse:
+    CreatePrivateUrlResponse:
       type: object
       properties:
         status:
           type: string
-          enum:
-          - success
         summary:
           type: string
         data:
           type: object
           properties:
-            slideUrl:
+            privateUrl:
               type: string
-              format: uri
-          required:
-          - slideUrl
       examples:
-      - success:
-          value:
-            status: success
-            summary: Get slideshow url
-            data:
-              slideUrl: https://analyticsapi.zoho.com/ZDBSlideshow.cc?SLIDEID=1767024000003139001&SLIDEKEY=9c4a1042011ce02fc4a3182fa75a22a9&AUTOPLAY=true&INTERVAL=25&INCLUDETITLE=true&INCLUDEDESC=true&SOCIALWIDGETS=false
+      - status: success
+        summary: Create private url
+        data:
+          privateUrl: https://analyticsapi.zoho.com/open-view/1767024000003145011/eee1191ea88d52e486aaecf5f748dc56
     MakeViewsPublicConfig:
       type: object
       properties:
@@ -1022,31 +965,78 @@ components:
         permissions:
           read: 'true'
           export: 'true'
-    CreateSlideshowConfig:
+    CreatePrivateUrlConfig:
       type: object
       properties:
-        slideName:
+        criteria:
           type: string
-          description: Name of the slideshow.
-        viewIds:
+        permissions:
+          type: object
+          properties:
+            vud:
+              type: boolean
+            export:
+              type: boolean
+            drillDown:
+              type: boolean
+            insight:
+              type: boolean
+        regenerateKey:
+          type: boolean
+        vudColumns:
           type: array
           items:
-            type: string
-          description: View ids to be included in the slideshow.
-        accessType:
-          type: integer
-          description: 'Access type of the slideshow. 0: With Login, 1: Without login, 2: Sort'
-          default: 0
-      required:
-      - slideName
-      - viewIds
+            type: object
+            properties:
+              tableName:
+                type: string
+              columnNames:
+                type: array
+                items:
+                  type: string
+        drillColumns:
+          type: array
+          items:
+            type: object
+            properties:
+              tableName:
+                type: string
+              columnNames:
+                type: array
+                items:
+                  type: string
+        includeAllColsForVUD:
+          type: boolean
+        password:
+          type: string
+        removePassword:
+          type: boolean
+        expiryDate:
+          type: string
+        removeExpiryDate:
+          type: boolean
       examples:
-      - slideName: Sales Overview
-        viewIds:
-        - '1767024000003013087'
-        - '1767024000003015001'
-        accessType: 0
-    CreatePrivateUrlResponse:
+      - criteria: '"SalesTable"."Region"=''East'''
+        permissions:
+          vud: true
+          export: true
+        regenerateKey: false
+        vudColumns:
+        - tableName: table1
+          columnNames:
+          - column1
+          - column2
+        drillColumns:
+        - tableName: table1
+          columnNames:
+          - column1
+          - column2
+        includeAllColsForVUD: false
+        password: zylker123
+        removePassword: false
+        expiryDate: '2025-12-31'
+        removeExpiryDate: false
+    GetViewUrlResponse:
       type: object
       properties:
         status:
@@ -1056,14 +1046,14 @@ components:
         data:
           type: object
           properties:
-            privateUrl:
+            viewUrl:
               type: string
       examples:
       - status: success
-        summary: Create private url
+        summary: Get view url
         data:
-          privateUrl: https://analyticsapi.zoho.com/open-view/1767024000003145011/eee1191ea88d52e486aaecf5f748dc56
-    MakeViewsPublicResponse:
+          viewUrl: https://analyticsapi.zoho.com/open-view/1767024000003145011?ZDB_THEME_NAME=blue
+    CreateSlideshowResponse:
       type: object
       properties:
         status:
@@ -1073,14 +1063,31 @@ components:
         data:
           type: object
           properties:
-            publicUrl:
+            slideId:
+              type: string
+            slideUrl:
               type: string
       examples:
       - status: success
-        summary: Make view public
+        summary: Create slideshow
         data:
-          publicUrl: https://analytics.zoho.com/open-view/1767024000008125004
+          slideId: '1767024000003151001'
+          slideUrl: https://analyticsapi.zoho.com/ZDBSlideshow.cc?SLIDEID=1767024000003151001&SLIDEKEY=69ba2ec9bfbe548f494bdf798087db41&AUTOPLAY=true&INTERVAL=25&INCLUDETITLE=true&INCLUDEDESC=true&SOCIALWIDGETS=false
+    GetPrivateUrlConfig:
+      type: object
+      properties:
+        domainName:
+          type: string
+          description: Provide the custom domain to obtain the private URL with the corresponding domain address.
+      required: []
   parameters:
+    slide-id:
+      name: slide-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the slide.
     workspace-id:
       name: workspace-id
       in: path
@@ -1102,13 +1109,6 @@ components:
       schema:
         type: string
       description: Organization ID (can be obtained using Get Organizations API).
-    slide-id:
-      name: slide-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the slide.
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2

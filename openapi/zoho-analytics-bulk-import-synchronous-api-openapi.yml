@@ -185,6 +185,41 @@ paths:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
   schemas:
+    ExistImportSuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+        summary:
+          type: string
+        data:
+          type: object
+          properties:
+            importSummary:
+              type: object
+              properties:
+                importType:
+                  type: string
+                totalColumnCount:
+                  type: integer
+                selectedColumnCount:
+                  type: integer
+                totalRowCount:
+                  type: integer
+                successRowCount:
+                  type: integer
+                warnings:
+                  type: integer
+                importOperation:
+                  type: string
+            columnDetails:
+              type: object
+              additionalProperties:
+                type: string
+            importErrors:
+              type: string
     ImportSuccessResponse:
       type: object
       properties:
@@ -222,49 +257,7 @@ components:
                 type: string
             importErrors:
               type: string
-    ExistImportSuccessResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-        summary:
-          type: string
-        data:
-          type: object
-          properties:
-            importSummary:
-              type: object
-              properties:
-                importType:
-                  type: string
-                totalColumnCount:
-                  type: integer
-                selectedColumnCount:
-                  type: integer
-                totalRowCount:
-                  type: integer
-                successRowCount:
-                  type: integer
-                warnings:
-                  type: integer
-                importOperation:
-                  type: string
-            columnDetails:
-              type: object
-              additionalProperties:
-                type: string
-            importErrors:
-              type: string
   parameters:
-    org-id:
-      name: ZANALYTICS-ORGID
-      in: header
-      required: true
-      schema:
-        type: string
-      description: Organization ID (can be obtained using Get Organizations API).
     view-id:
       name: view-id
       in: path
@@ -279,6 +272,13 @@ components:
       schema:
         type: string
       description: ID of the workspace.
+    org-id:
+      name: ZANALYTICS-ORGID
+      in: header
+      required: true
+      schema:
+        type: string
+      description: Organization ID (can be obtained using Get Organizations API).
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2
