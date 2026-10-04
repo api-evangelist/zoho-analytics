@@ -260,6 +260,35 @@ paths:
         default:
           $ref: https://raw.githubusercontent.com/zoho/analytics-oas/refs/heads/main/v2.0/zoho-analytics-api-common.json#/components/responses/CommonErrorResponse
 components:
+  parameters:
+    org-id:
+      name: ZANALYTICS-ORGID
+      in: header
+      required: true
+      schema:
+        type: string
+      description: Organization ID (can be obtained using Get Organizations API).
+    workspace-id:
+      name: workspace-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the workspace.
+    job-id:
+      name: job-id
+      in: path
+      description: The unique identifier of the import/export job.
+      required: true
+      schema:
+        type: string
+    view-id:
+      name: view-id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the view.
   schemas:
     ImportJobDetailsResponse:
       type: object
@@ -322,35 +351,6 @@ components:
             jobId:
               type: string
               description: The unique ID of the import job.
-  parameters:
-    view-id:
-      name: view-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the view.
-    job-id:
-      name: job-id
-      in: path
-      description: The unique identifier of the import/export job.
-      required: true
-      schema:
-        type: string
-    workspace-id:
-      name: workspace-id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the workspace.
-    org-id:
-      name: ZANALYTICS-ORGID
-      in: header
-      required: true
-      schema:
-        type: string
-      description: Organization ID (can be obtained using Get Organizations API).
   securitySchemes:
     iam-oauth2-schema:
       type: oauth2
