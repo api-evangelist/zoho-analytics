@@ -1,0 +1,57 @@
+slug: zoho-analytics
+provider: Zoho Analytics
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: User Management APIs
+  spec_file: zoho-analytics-user-management-apis-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /restapi/v2/users  addUsers  Add Users; PUT /restapi/v2/users/inactive  deActivateUsers  Deactivate
+    Users; PUT /restapi/v2/users/role  changeUserRole  Change User Role
+  reason: Full user lifecycle — add, remove, activate, deactivate, role change, workspace membership —
+    is identity and access administration. Minor subscription/resource endpoints do not change the dominant
+    surface.
+- tag: Embed APIs
+  spec_file: zoho-analytics-embed-apis-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.75
+  evidence: GET /restapi/v2/workspaces/{workspace-id}/views/{view-id}/publish/embed  getEmbedUrl  Get
+    Embed URL; POST /restapi/v2/workspaces/{workspace-id}/slides  createSlideshow  Create Slideshow
+  reason: Publishing, embedding and slideshow distribution of analytics views and dashboards is delivery
+    of reporting/BI content to consumers, squarely Analytics & BI Management.
+- tag: Metadata APIs
+  spec_file: zoho-analytics-metadata-apis-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: GET /restapi/v2/dashboards  getDashboards  Get Dashboards; GET /restapi/v2/workspaces/{workspace-id}/views  getViews  Get
+    Views
+  reason: Enumerates workspaces, views, folders and dashboards of the BI platform (GetViewsResponse, GetSharedDashboardsResponse).
+    This is inventory/administration of analytics assets, so Analytics & BI Management; some of it is
+    generic org/metadata plumbing, hence not top confidence.
+- tag: Modeling APIs
+  spec_file: zoho-analytics-modeling-apis-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: POST /restapi/v2/workspaces/{workspace-id}/reports  createReport  Create Report
+  reason: Creates and maintains workspaces, tables, query tables and reports (CreateReportConfig, AddFormulaColumnConfig)
+    — authoring of BI datasets and reports. Analytics & BI Management fits; a data-architecture reading
+    is also arguable for the table modelling subset, so confidence is tempered.

@@ -45,6 +45,7 @@ tags:
 - Data Export
 - Workspace
 - Visualization
+- Data Visualization
 tags_raw:
 - Business Intelligence
 - Analytics
@@ -54,6 +55,7 @@ tags_raw:
 - Data Export
 - Workspaces
 - Visualizations
+- Data Visualization
 apis:
 - aid: zoho-analytics:zoho-analytics-bulk-export-asynchronous-api
   name: Zoho Analytics Bulk Export - Asynchronous API
@@ -223,6 +225,9 @@ apis:
   - type: Authentication
     url: https://www.zoho.com/analytics/api/v2/api-specification.html
 common:
+- type: CapabilityMap
+  url: capabilities/zoho-analytics-capability-edges.yml
+  name: Zoho Analytics Business Capability Map
 - type: AgenticAccess
   url: agentic-access/zoho-analytics-agentic-access.yml
 - type: VulnerabilityDisclosure
