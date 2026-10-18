@@ -82,7 +82,7 @@
     - alpha
     in_cloud: true
     builder: unknown (community connector; contributor not in the record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: zoho-analytics-google-workspace-own
   label: Google Workspace (own)
