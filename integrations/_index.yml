@@ -54,3 +54,46 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
+- slug: zoho-analytics-airbyte
+  label: Airbyte
+  partner: airbyte
+  partner_name: Airbyte
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  evidence: https://docs.airbyte.com/integrations/sources/zoho-analytics-metadata-api
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    spec_file: null
+    role: elt-connector:airbyte-community
+    registered_name: Zoho Analytics metadata api
+    matched_domain: zoho.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/source-zoho-analytics-metadata-api
+    support_level:
+    - community
+    release_stage:
+    - alpha
+    in_cloud: true
+    builder: unknown (community connector; contributor not in the record)
+  status: pending-generation
+  arazzo: null
+- slug: zoho-analytics-google-workspace-own
+  label: Google Workspace (own)
+  partner: google-workspace
+  partner_name: Google Workspace (own)
+  category: Google Workspace app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://workspace.google.com/marketplace/app/zoho_analytics/381009473798
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
